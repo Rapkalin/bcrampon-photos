@@ -56,7 +56,6 @@ website/app/plugins/svg-support
 website/app/plugins/translatepress-multilingual
 
 # Global gitignore setup
-/composer.lock
 website/.env
 .bundle/
 *.retry
