@@ -53,7 +53,7 @@ jobs:
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_KEY }}
           port: 22
-          script: "[ ! -d ~/bcrampon/preprod-bcrampon/website ] || rm -rf ~/bcrampon/preprod-bcrampon/website/vendor ~/bcrampon/preprod-bcrampon/website/wordpress-core"
+          script: "[ ! -d ~/preprod-bcrampon/website ] || rm -rf ~/preprod-bcrampon/website/vendor ~/preprod-bcrampon/website/wordpress-core"
 
       - name: checkout preprod-bcrampon
         uses: actions/checkout@v3
@@ -72,7 +72,7 @@ jobs:
         with:
           switches: -avzr --delete
           path: ./website
-          remote_path: ~/bcrampon/preprod-bcrampon
+          remote_path: ~/preprod-bcrampon
           remote_host: ${{ secrets.DEPLOY_HOST }}
           remote_user: ${{ secrets.DEPLOY_USER }}
           remote_key: ${{ secrets.DEPLOY_KEY }}
@@ -85,10 +85,10 @@ jobs:
           key: ${{ secrets.DEPLOY_KEY }}
           port: 22
           script: |
-            ln -nsrf ~/bcrampon/preprod-bcrampon/shared/.env ~/bcrampon/preprod-bcrampon/website/.env
-            ln -nsrf ~/bcrampon/preprod-bcrampon/shared/uploads ~//bcramponpreprod-bcrampon/website/app/uploads
-            ln -nsrf ~/bcrampon/preprod-bcrampon/shared/cache ~/bcrampon/preprod-bcrampon/website/app/cache
-            ln -nsrf ~/bcrampon/preprod-bcrampon/shared/w3tc-config ~/bcrampon/preprod-bcrampon/website/app/w3tc-config
-            rm ~/bcrampon/preprod-bcrampon/website/.htaccess
-            ln -nsrf ~/bcrampon/preprod-bcrampon/shared/.htaccess ~/bcrampon/preprod-bcrampon/website/.htaccess
-            ln -nsrf ~/bcrampon/preprod-bcrampon/shared/.htpasswd ~/bcrampon/preprod-bcrampon/website/.htpasswd
+            ln -nsrf ~/preprod-bcrampon/shared/.env ~/preprod-bcrampon/website/.env
+            ln -nsrf ~/preprod-bcrampon/shared/uploads ~/preprod-bcrampon/website/app/uploads
+            ln -nsrf ~/preprod-bcrampon/shared/cache ~/preprod-bcrampon/website/app/cache
+            ln -nsrf ~/preprod-bcrampon/shared/w3tc-config ~/preprod-bcrampon/website/app/w3tc-config
+            rm ~/preprod-bcrampon/website/.htaccess
+            ln -nsrf ~/preprod-bcrampon/shared/.htaccess ~/preprod-bcrampon/website/.htaccess
+            ln -nsrf ~/preprod-bcrampon/shared/.htpasswd ~/preprod-bcrampon/website/.htpasswd
