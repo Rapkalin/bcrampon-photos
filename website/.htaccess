@@ -1,0 +1,33 @@
+#AuthType Basic
+#AuthName "Zone protégée"
+#AuthUserFile /kunden/homepages/27/d471972429/htdocs/preprod-bcrampon/shared/.htpasswd
+#Require valid-user
+
+# Autoriser la réécriture
+#RewriteEngine On
+
+#<files *.html>
+#    Header set X-Robots-Tag "index,follow"
+#</files>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteCond %{HTTP_HOST} ^[^\.]+\.bcramponphoto\.com [NC]
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# BEGIN WordPress
+# Les directives (lignes) entre « BEGIN WordPress » et « END WordPress » sont générées
+# dynamiquement, et doivent être modifiées uniquement via les filtres WordPress.
+# Toute modification des directives situées entre ces marqueurs sera surchargée.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+    RewriteBase /
+    RewriteRule ^index\.php$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress
