@@ -1,0 +1,93 @@
+name: Deploy website on push new tag
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        php: [ 7.0 ]
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+
+      - name: Restore the Composer cache directory
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: /tmp/composer-cache
+          key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-'8.0'-composer-
+
+      - name: Install dependencies
+        uses: php-actions/composer@v6
+        with:
+          dev: no
+          args: --prefer-dist --no-interaction
+
+      - name: Zip artifact for deployment
+        run: zip -r release.zip website/app/* website/vendor/* website/wordpress-core/* -x ".git/*" -x ".github/*"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: app
+          path: release.zip
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: create or replace backup release
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          port: 22
+          script: "[ ! -d ~/bcrampon/prod-bcrampon/website ] || rm -rf ~/bcrampon/prod-bcrampon/old_website ~/bcrampon/prod-bcrampon/website/vendor ~/bcrampon/prod-bcrampon/website/wordpress-core && mv -fu ~/bcrampon/prod-bcrampon/website ~/bcrampon/prod-bcrampon/old_website"
+
+      - name: checkout code
+        uses: actions/checkout@v3
+
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: app
+
+      - name: unzip artifact for deployment
+        run: |
+         unzip -o release.zip
+
+      - name: Deploy with rsync
+        uses: burnett01/rsync-deployments@5.2
+        with:
+          switches: -avzr --delete
+          path: ./website
+          remote_path: ~/code
+          remote_host: ${{ secrets.DEPLOY_HOST }}
+          remote_user: ${{ secrets.DEPLOY_USER }}
+          remote_key: ${{ secrets.DEPLOY_KEY }}
+
+      - name: create new Symlink
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          port: 22
+          script: |
+            ln -nsrf ~/bcrampon/prod-bcrampon/shared/.env ~/bcrampon/prod-bcrampon/website/.env
+            ln -nsrf ~/bcrampon/prod-bcrampon/shared/uploads ~/bcrampon/prod-bcrampon/website/app/uploads
+            ln -nsrf ~/bcrampon/prod-bcrampon/shared/cache ~/bcrampon/prod-bcrampon/website/app/cache
+            ln -nsrf ~/bcrampon/prod-bcrampon/shared/w3tc-config ~/bcrampon/prod-bcrampon/website/app/w3tc-config
+            rm ~/bcrampon/prod-bcrampon/website/.htaccess
+            ln -nsrf ~/bcrampon/prod-bcrampon/shared/.htaccess ~/bcrampon/prod-bcrampon/website/.htaccess
