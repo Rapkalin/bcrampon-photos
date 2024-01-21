@@ -40,7 +40,8 @@
     "wpackagist-plugin/svg-support":"^2.5",
 
     "ext-dom": "*",
-    "ext-libxml": "*"
+    "ext-libxml": "*",
+    "ext-pdo": "*"
   },
 
   "require-dev": {
