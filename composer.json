@@ -20,7 +20,7 @@
   ],
 
   "require": {
-    "php": ">=7.0",
+    "php": "7.0.33",
     "johnpbloch/wordpress": "^6.3",
     "composer/installers": "~1.12",
     "vlucas/phpdotenv": "^4.3",
