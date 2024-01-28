@@ -42,7 +42,7 @@ website/app/plugins/w3-total-cache
 website/app/plugins/wordpress-seo
 website/app/plugins/google-site-kit
 website/app/plugins/svg-support
-website/app/plugins/categories-images
+website/app/plugins/media-library-assistant
 
 # Global gitignore setup
 /composer.lock

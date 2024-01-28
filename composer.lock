@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ffee41d4cd42ed30f0dcff8045feda16",
+    "content-hash": "28099c8e3237d2471ebba36302d9e0c0",
     "packages": [
         {
             "name": "composer/installers",
@@ -662,6 +662,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/jetpack/"
+        },
+        {
+            "name": "wpackagist-plugin/media-library-assistant",
+            "version": "3.13",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/media-library-assistant/",
+                "reference": "tags/3.13"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/media-library-assistant.3.13.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/media-library-assistant/"
         },
         {
             "name": "wpackagist-plugin/performance-lab",
