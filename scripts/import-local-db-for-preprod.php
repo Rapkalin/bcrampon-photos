@@ -2,7 +2,7 @@
 
 echo "...Start micro time. \r\n";
 
-require __DIR__ . '/../website/vendor/autoload.php';
+require __DIR__ . '/../../website/vendor/autoload.php';
 
 use Dotenv\Dotenv;
 
@@ -15,10 +15,10 @@ if (PHP_SAPI !== 'cli') {
 $start = microtime(true);
 
 // Load .env data
-$dotenv = Dotenv::createMutable(__DIR__.'/../website', '.env');
+$dotenv = Dotenv::createMutable(__DIR__.'/..', '.env');
 $dotenv->safeLoad();
 
-$filename = __DIR__ . '/../shared/' . '240121-bcrampon-preprod_2024-01-28.sql';
+$filename = __DIR__ . '/../database/' . '240121-bcrampon-preprod_2024-01-28.sql';
 
 if (file_exists($filename)) {
     echo 'Filename path: ' . $filename . ".\r\n";
@@ -70,25 +70,25 @@ if (file_exists($filename)) {
         $stmt->execute([$result["option_value"], $serialized_array]);
 
         $stmt = $pdo->prepare('UPDATE wp_posts SET guid = replace(guid, ?, ?);');
-        $stmt->execute([getenv('WP_SITEURL'), getenv('PREPROD_SITEURL')]);
+        $stmt->execute([getenv('WP_LOCAL_SITEURL'), getenv('PREPROD_SITEURL')]);
 
         $stmt = $pdo->prepare('UPDATE wp_posts SET post_content = replace(post_content, ?, ?);');
-        $stmt->execute([getenv('WP_SITEURL'), getenv('PREPROD_SITEURL')]);
+        $stmt->execute([getenv('WP_LOCAL_SITEURL'), getenv('PREPROD_SITEURL')]);
 
         $stmt = $pdo->prepare('UPDATE wp_links SET link_url = replace(link_url, ?, ?);');
-        $stmt->execute([getenv('WP_SITEURL'), getenv('PREPROD_SITEURL')]);
+        $stmt->execute([getenv('WP_LOCAL_SITEURL'), getenv('PREPROD_SITEURL')]);
 
         $stmt = $pdo->prepare('UPDATE wp_links SET link_image = replace(link_image, ?, ?);');
-        $stmt->execute([getenv('WP_SITEURL'), getenv('PREPROD_SITEURL')]);
+        $stmt->execute([getenv('WP_LOCAL_SITEURL'), getenv('PREPROD_SITEURL')]);
 
         $stmt = $pdo->prepare('UPDATE wp_postmeta SET meta_value = replace(meta_value, ?, ?);');
-        $stmt->execute([getenv('WP_SITEURL'), getenv('PREPROD_SITEURL')]);
+        $stmt->execute([getenv('WP_LOCAL_SITEURL'), getenv('PREPROD_SITEURL')]);
 
         $stmt = $pdo->prepare('UPDATE wp_usermeta SET meta_value = replace(meta_value, ?, ?);');
-        $stmt->execute([getenv('WP_SITEURL'), getenv('PREPROD_SITEURL')]);
+        $stmt->execute([getenv('WP_LOCAL_SITEURL'), getenv('PREPROD_SITEURL')]);
 
         $stmt = $pdo->prepare('UPDATE wp_options SET option_value = replace(option_value, ?, ?) WHERE option_name = "home" OR option_name = "siteurl";');
-        $stmt->execute([rtrim(getenv('WP_SITEURL'), '/'), rtrim(getenv('PREPROD_SITEURL'), '/')]);
+        $stmt->execute([rtrim(getenv('WP_LOCAL_SITEURL'), '/'), rtrim(getenv('PREPROD_SITEURL'), '/')]);
 
         $pdo->commit();
 
