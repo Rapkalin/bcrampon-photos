@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * Landing page functions
  * Used in front-page.php
@@ -69,7 +70,12 @@ if ( empty( $image ) && empty( $title ) && empty( $content ) && empty( $lpslider
 
 	<div class="lp-staticslider">
 		<?php if ( ! empty( $image ) ) { ?>
-			<img class="lp-staticslider-image" alt="<?php echo esc_attr( $title ) ?>" src="<?php echo esc_url( $image ); ?>">
+			<div
+                class="lp-staticslider-image"
+                alt="<?php echo esc_attr( $title ) ?>"
+                style="background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)),
+                url(<?php echo esc_url( $image ); ?>);"
+            >
 		<?php } ?>
 		<div class="staticslider-caption">
 			<div class="staticslider-caption-inside">

@@ -50,6 +50,10 @@ function bravada_child_register_style()
 {
     wp_register_style( 'bravada-child-style', get_stylesheet_uri());
     wp_enqueue_style( 'bravada-child-style');
+
+    wp_register_style( 'bravada-child-style-frontpage', get_stylesheet_directory_uri() . '/styles/frontpage.css' );
+    wp_enqueue_style( 'bravada-child-style-frontpage');
+
 }
 
 /**
@@ -57,7 +61,7 @@ function bravada_child_register_style()
  *
  * Load translation files from child and parent themes
  */
-function bravada_child_theme_locale(): void
+function bravada_child_theme_locale()
 {
     load_child_theme_textdomain( 'bravada', get_stylesheet_directory() . '/languages' );
     load_child_theme_textdomain( 'bcrampon', get_stylesheet_directory() . '/languages' );
