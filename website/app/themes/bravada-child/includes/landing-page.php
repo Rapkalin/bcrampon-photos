@@ -1,5 +1,7 @@
 <?php
-
+/*$region_categories = bravada_child_get_region_travel_categories();
+$country_categories = bravada_child_get_all_country_travel_categories($region_categories);
+$sorted_cities = bravada_child_get_all_sorted_cities($country_categories);*/
 
 /**
  * Landing page functions
