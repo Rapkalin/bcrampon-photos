@@ -39,6 +39,7 @@
     "wpackagist-plugin/google-site-kit":"^1.108",
     "wpackagist-plugin/svg-support":"^2.5",
     "wpackagist-plugin/media-library-assistant":"^3.13",
+    "wpackagist-plugin/categories-images":"3.1.0",
 
     "ext-dom": "*",
     "ext-libxml": "*",
