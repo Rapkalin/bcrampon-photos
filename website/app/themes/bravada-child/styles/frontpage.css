@@ -1,0 +1,9 @@
+.bravada-child-category-images {
+    display: grid;
+    align-items: stretch;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.bravada-child-category-images-grid {
+    grid-column: 1 / span 2;
+}

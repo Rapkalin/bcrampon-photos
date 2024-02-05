@@ -398,4 +398,27 @@ function bravada_lpindex() {
 } // bravada_lpindex()
 endif;
 
+if ( ! function_exists('bravada_child_categories') ):
+function bravada_child_categories() {
+    $post_categories = get_terms( array(
+    'taxonomy'   => 'category',
+    'hide_empty' => false,
+) );
+?>
+<div class="bravada-child-category-images">
+        <?php
+            foreach ($post_categories as $post_category) {
+                 if ($post_category->slug !== 'uncategorized' && function_exists('z_taxonomy_image')) {
+                     // z_taxonomy_image($post_category->term_id);
+                     ?>
+                        <img class="bravada-child-category-image" src="<?php echo z_taxonomy_image_url($post_category->term_id) ?>"></img>
+                    <?php
+                 }
+            }
+        ?>
+</div>
+<?php
+}
+endif;
+
 // FIN
