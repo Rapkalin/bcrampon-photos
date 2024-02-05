@@ -28,7 +28,7 @@ if (file_exists($filename)) {
 }
 
 // Import db in preprod server
-exec("mysqldump --host=" . getenv('DATABASE_PREPROD_HOST') . " --user=" . getenv('DATABASE_PREPROD_USER') . " --password=" . getenv('DATABASE_PREPROD_PASSWORD') . " --single-transaction --routines --no-tablespaces " . getenv('DATABASE_PROD_NAME') . " > $filename");
+exec("mysqldump --host=" . getenv('DATABASE_PREPROD_HOST') . " --user=" . getenv('DATABASE_PREPROD_USER') . " --password=" . getenv('DATABASE_PREPROD_PASSWORD') . " --single-transaction --routines --no-tablespaces " . getenv('DATABASE_PREPROD_NAME') . " > $filename");
 
 echo "...SQL file available on remote server. \r\n";
 
