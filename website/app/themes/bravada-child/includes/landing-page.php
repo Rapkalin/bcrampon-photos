@@ -407,11 +407,21 @@ function bravada_child_categories() {
 ?>
 <div class="bravada-child-category-images">
         <?php
-            foreach ($post_categories as $post_category) {
+            foreach ($post_categories as $key => $post_category) {
                  if ($post_category->slug !== 'uncategorized' && function_exists('z_taxonomy_image')) {
                      // z_taxonomy_image($post_category->term_id);
                      ?>
-                        <img class="bravada-child-category-image" src="<?php echo z_taxonomy_image_url($post_category->term_id) ?>"></img>
+                    <a href="<?php echo "http://bcramponphoto.local/$post_category->slug" ?>">
+
+                         <div class="image-overlay" href="<?php echo "http://bcramponphoto.local/$post_category->slug" ?>">
+                            <p class="text-overlay"><?php echo $post_category->name ?></p>
+                            <img
+                                class="bravada-child-category-image"
+                                src="<?php echo z_taxonomy_image_url($post_category->term_id) ?>"
+                                >
+                        </div>
+                    </a>
+
                     <?php
                  }
             }
