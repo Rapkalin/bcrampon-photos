@@ -411,9 +411,9 @@ function bravada_child_categories() {
                  if ($post_category->slug !== 'uncategorized' && function_exists('z_taxonomy_image')) {
                      // z_taxonomy_image($post_category->term_id);
                      ?>
-                    <a href="<?php echo "http://bcramponphoto.local/$post_category->slug" ?>">
+                    <a href="<?php echo get_home_url() . "/category/$post_category->slug" ?>">
 
-                         <div class="image-overlay" href="<?php echo "http://bcramponphoto.local/$post_category->slug" ?>">
+                         <div class="image-overlay">
                             <p class="text-overlay"><?php echo $post_category->name ?></p>
                             <img
                                 class="bravada-child-category-image"
@@ -430,5 +430,4 @@ function bravada_child_categories() {
 <?php
 }
 endif;
-
 // FIN

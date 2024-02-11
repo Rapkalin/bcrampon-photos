@@ -35,8 +35,8 @@ img {
 }
 
 img:hover {
-    transform: scale(1.2);
-    transition: all .3s ease;
+    transform: scale(1.1);
+    transition: all .5s ease;
 }
 
 .text-overlay {
@@ -45,11 +45,18 @@ img:hover {
     font-family: 'Muli';
 }
 
-#site-header-main, .menu-search-animated .searchform input[type="search"], #access .menu-search-animated .searchform, .site-header-bottom-fixed, .bravada-over-menu .site-header-bottom.header-fixed .site-header-bottom-fixed {
+#site-header-main,
+.menu-search-animated .searchform input[type="search"],
+#access .menu-search-animated .searchform,
+.site-header-bottom-fixed,
+.bravada-over-menu .site-header-bottom.header-fixed .site-header-bottom-fixed {
     background-color: #15191e;
 }
 
-#access > div > ul > li, #access > div > ul > li > a, .bravada-over-menu .header-fixed.site-header-bottom #access > div > ul > li:not([class*='current']), .bravada-over-menu .header-fixed.site-header-bottom #access > div > ul > li:not([class*='current']) > a {
+#access > div > ul > li,
+#access > div > ul > li > a,
+.bravada-over-menu .header-fixed.site-header-bottom #access > div > ul > li:not([class*='current']),
+.bravada-over-menu .header-fixed.site-header-bottom #access > div > ul > li:not([class*='current']) > a {
     color: white;
 }
 
@@ -57,6 +64,10 @@ img:hover {
     background-color: white;
 }
 
-#access > div > ul > li.current_page_item > a, #access > div > ul > li.current-menu-item > a, #access > div > ul > li.current_page_ancestor > a, #access > div > ul > li.current-menu-ancestor > a, .bravada-over-menu .header-fixed.site-header-bottom #access > div > ul > li > a {
+#access > div > ul > li.current_page_item > a,
+#access > div > ul > li.current-menu-item > a,
+#access > div > ul > li.current_page_ancestor > a,
+#access > div > ul > li.current-menu-ancestor > a,
+.bravada-over-menu .header-fixed.site-header-bottom #access > div > ul > li > a {
     color: white;
 }

@@ -15,6 +15,7 @@ add_action( 'wp_enqueue_scripts', 'bravada_child_register_style', 11 );
 add_action( 'after_setup_theme', 'bravada_child_theme_locale' );
 
 add_action( 'cryout_master_footerbottom_hook', 'bravada_child_footerbottom_hook', 9 );
+add_action( 'cryout_headerimage_hook', 'bravada_child_header_image_hook', 9 );
 add_action( 'init', 'bravada_child_footerbottom_hook', 9 );
 
 // Frontend side
@@ -78,6 +79,14 @@ function bravada_child_footerbottom_hook()
     if (function_exists('bravada_master_footer')) {
         remove_action( 'cryout_master_footerbottom_hook', 'bravada_master_footer' );
         add_action('cryout_master_footerbottom_hook', 'bravada_child_master_footer', 11);
+    }
+}
+
+function bravada_child_header_image_hook()
+{
+    if (function_exists('bravada_header_image')) {
+        remove_action ( 'cryout_headerimage_hook', 'bravada_header_image', 99 );
+        add_action ( 'cryout_headerimage_hook', 'bravada_child_header_image', 99 );
     }
 }
 
@@ -216,3 +225,40 @@ function bravada_child_get_all_sorted_cities(array $country_categories) : array
 
     return $sorted_cities;
 }
+
+if ( ! function_exists( 'bravada_child_header_image' ) ) :
+    function bravada_child_header_image() {
+        if ( cryout_on_landingpage() && cryout_get_option('theme_lpslider') != 3) return; // if on landing page and static slider not set to header image, exit.
+        $header_image = bravada_header_image_url();
+        if ( is_front_page() && function_exists( 'the_custom_header_markup' ) && has_header_video() ) {
+            the_custom_header_markup();
+        } elseif (is_category()) {
+            $cat_id = get_query_var('cat');
+            // get_category($cat_id));
+            $category_image = z_taxonomy_image_url($cat_id);
+            ?>
+            <div id="header-overlay"></div>
+            <div class="header-image" <?php cryout_echo_bgimage( esc_url( $category_image ) ) ?>></div>
+            <img
+                class="header-image"
+                alt="<?php if ( is_single() ) the_title_attribute();
+                elseif ( is_archive() ) echo esc_attr( get_the_archive_title() );
+                else echo esc_attr( get_bloginfo( 'name' ) ) ?>"
+                src="<?php echo esc_url( $category_image ) ?>"
+            />
+            <?php
+        } elseif ( ! empty( $header_image ) ) { ?>
+            <div id="header-overlay"></div>
+            <div class="header-image" <?php cryout_echo_bgimage( esc_url( $header_image ) ) ?>></div>
+            <img
+                class="header-image"
+                alt="<?php if ( is_single() ) the_title_attribute();
+                elseif ( is_archive() ) echo esc_attr( get_the_archive_title() );
+                else echo esc_attr( get_bloginfo( 'name' ) ) ?>"
+                src="<?php echo esc_url( $header_image ) ?>"
+            />
+            <?php cryout_header_widget_hook(); ?>
+            <?php
+        }
+    } // bravada_header_image()
+endif;
