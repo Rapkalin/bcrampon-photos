@@ -1,8 +1,8 @@
-.bravada_child_category_menu_active {
+.bravada_child_taxonomy_menu_active {
     position: unset !important;
 }
 
-.bravada-child-categorypage-category-images {
+.bravada-child-taxonomypage-taxonomy-images {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 80vw;
@@ -10,22 +10,30 @@
     row-gap: 3vh;
 }
 
-.bravada-child-category-grid-link {
+.bravada-child-taxonomy-grid-link {
     margin: 2vh 1vh 0 1vh;
 }
 
-#bravada-child-category-grid-content {
+#bravada-child-taxonomy-grid-content {
     display: flex;
     justify-content: center;
     margin-top: 1vh;
 }
 
-.bravada-child-children-category-image {
+.bravada-child-children-taxonomy-image {
     height: 40vh;
     width: 100%;
     object-fit: cover;
     object-position: top;
     overflow: hidden;
+}
+
+#bravada-child-taxonomy-title {
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin: 5vh 0;
+    font-size: xxx-large;
 }
 
 .bravada_child_slider_row > .bravada_child_slider_column {
@@ -106,8 +114,23 @@
     border-radius: 0 3px 3px 0;
     user-select: none;
     -webkit-user-select: none;
-    background-color: #15191e
-;
+    background-color: #15191e;
+}
+
+.bravada-child-taxonomy-image {
+    height: 40vh;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bravada-child-taxonomy-image:hover {
+    transform: scale(1.1);
+    transition: all .5s ease;
 }
 
 /* Position the "next button" to the right */

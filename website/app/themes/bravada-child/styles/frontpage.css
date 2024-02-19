@@ -20,17 +20,6 @@
     grid-template-columns: repeat(2, 1fr);
 }
 
-.bravada-child-category-image {
-    height: 40vh;
-    width: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: -1;
-    overflow: hidden;
-}
-
 .image-overlay {
     display: flex;
     background-color: rgba(0,0,0,0.3);
@@ -50,10 +39,6 @@
     transform: translateX(0);
 }
 
-.bravada-child-category-image:hover {
-    transform: scale(1.1);
-    transition: all .5s ease;
-}
 
 .text-overlay {
     font-size: x-large;

@@ -80,6 +80,7 @@ if ( empty( $image ) && empty( $title ) && empty( $content ) && empty( $lpslider
                 url(<?php echo esc_url( $image ); ?>);
                 background-position: center;
                 background-repeat: no-repeat;
+                background-size: cover;
                 "
             >
 		<?php } ?>

@@ -9,8 +9,8 @@
  * Controllers are just a way to split the function for a specific page
  */
 
-include_once 'controllers/frontPageController.php'; // category page
-include_once 'controllers/categoriesController.php'; // category page
+include_once 'controllers/frontPageController.php'; // front page
+include_once 'controllers/taxonomiesController.php'; // taxonomy pages
 
 // require get_stylesheet_directory() . '/inc/template-tags-child.php';
 // require_once get_stylesheet_directory() . '/options/banner-event.php';
@@ -67,8 +67,8 @@ function bravada_child_register_style()
     wp_register_style( 'bravada-child-style-frontpage', get_stylesheet_directory_uri() . '/styles/frontpage.css' );
     wp_enqueue_style( 'bravada-child-style-frontpage');
 
-    wp_register_style( 'bravada-child-style-categorypage', get_stylesheet_directory_uri() . '/styles/categorypage.css' );
-    wp_enqueue_style( 'bravada-child-style-categorypage');
+    wp_register_style( 'bravada-child-style-taxonomypage', get_stylesheet_directory_uri() . '/styles/taxonomypage.css');
+    wp_enqueue_style( 'bravada-child-style-taxonomypage');
 }
 
 /**
@@ -241,25 +241,22 @@ function bravada_child_get_all_sorted_cities(array $country_categories) : array
 
 if ( ! function_exists( 'bravada_child_header_image' ) ) :
     function bravada_child_header_image() {
-        $category = is_category() ? get_category( get_query_var( 'cat' )) : null;
 
         if ( cryout_on_landingpage() && cryout_get_option('theme_lpslider') != 3) return; // if on landing page and static slider not set to header image, exit.
-        $header_image = bravada_header_image_url();
+        $header_image = bravada_header_image_url();$taxonomy = is_tax() ? get_queried_object() : null;
         if ( is_front_page() && function_exists( 'the_custom_header_markup' ) && has_header_video() ) {
             the_custom_header_markup();
-        } elseif (
-                $category
-        ) {
-            $category_image = z_taxonomy_image_url($category->term_id);
+        } elseif ($taxonomy) {
+            $taxonomy_image = z_taxonomy_image_url($taxonomy->term_id);
             ?>
             <div id="header-overlay"></div>
-            <div class="header-image" <?php cryout_echo_bgimage( esc_url( $category_image ) ) ?>></div>
+            <div class="header-image" <?php cryout_echo_bgimage( esc_url( $taxonomy_image ) ) ?>></div>
             <img
                 class="header-image"
                 alt="<?php if ( is_single() ) the_title_attribute();
                 elseif ( is_archive() ) echo esc_attr( get_the_archive_title() );
                 else echo esc_attr( get_bloginfo( 'name' ) ) ?>"
-                src="<?php echo esc_url( $category_image ) ?>"
+                src="<?php echo esc_url( $taxonomy_image ) ?>"
             />
             <?php
         } elseif ( ! empty( $header_image ) ) { ?>

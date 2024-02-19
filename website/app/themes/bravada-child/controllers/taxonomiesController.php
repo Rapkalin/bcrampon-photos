@@ -1,31 +1,31 @@
 <?php
 
-add_action('display_category_grid_images_partial', 'bravada_child_get_category_grid_images_partial');
-add_action('display_children_category_grid_images_partial', 'bravada_child_display_children_category_grid_images_partial');
+add_action('display_taxonomy_grid_images_partial', 'bravada_child_get_taxonomy_grid_images_partial');
+add_action('display_children_taxonomy_grid_images_partial', 'bravada_child_display_children_taxonomy_grid_images_partial');
 
-if (!function_exists('bravada_child_get_category_grid_images_partial')) {
-    function bravada_child_get_category_grid_images_partial(array $children_ids)
+if (!function_exists('bravada_child_get_taxonomy_grid_images_partial')) {
+    function bravada_child_get_taxonomy_grid_images_partial(array $children_ids)
     {
-        ?><div class="bravada-child-categorypage-category-images"><?php
+        ?><div class="bravada-child-taxonomypage-taxonomy-images"><?php
             foreach ($children_ids as $child_id) {
-                $child_category = get_category($child_id);
-                get_category_image_card($child_category);
+                $child_taxonomy = get_term_by('term_taxonomy_id', $child_id);
+                get_taxonomy_image_card($child_taxonomy);
             }
         ?></div><?php
     }
 }
 
-if (!function_exists('get_category_image_card')) {
-    function get_category_image_card($child_category)
+if (!function_exists('get_taxonomy_image_card')) {
+    function get_taxonomy_image_card($child_taxonomy)
     {
         ?>
-            <a class="bravada-child-category-grid-link" href="<?php echo get_home_url() . "/category/$child_category->slug" ?>">
+            <a class="bravada-child-taxonomy-grid-link" href="<?php echo get_term_link($child_taxonomy) ?>">
 
                 <div class="image-overlay">
-                    <p class="text-overlay"><?php echo $child_category->name ?></p>
+                    <p class="text-overlay"><?php echo $child_taxonomy->name ?></p>
                     <img
-                        class="bravada-child-category-image"
-                        src="<?php echo z_taxonomy_image_url($child_category->term_id) ?>"
+                        class="bravada-child-taxonomy-image"
+                        src="<?php echo z_taxonomy_image_url($child_taxonomy->term_id) ?>"
                     >
                 </div>
             </a>
@@ -33,12 +33,23 @@ if (!function_exists('get_category_image_card')) {
     }
 }
 
-if (!function_exists('bravada_child_display_children_category_grid_images_partial')) {
-    function bravada_child_display_children_category_grid_images_partial (array $images) {
-        ?><div class="bravada-child-categorypage-category-images"><?php
+if (!function_exists('bravada_child_display_children_taxonomy_grid_images_partial')) {
+    function bravada_child_display_children_taxonomy_grid_images_partial (array $images) {
+
+        /*
+         * For some reasons if we only have 1 item in the array $images
+         * it arrives here as an object
+         * So we previously pass it in an array and retrieve the first entry of it
+         */
+
+        if (count($images) === 1) {
+            $images = $images[0];
+        }
+
+        ?><div class="bravada-child-taxonomypage-taxonomy-images"><?php
         foreach ($images as $key => $image) {
             $currentImage = $key + 1;
-            get_children_category_images_card($image, $currentImage);
+            get_children_taxonomy_images_card($image, $currentImage);
         }
         ?></div>
 
@@ -51,7 +62,7 @@ if (!function_exists('bravada_child_display_children_category_grid_images_partia
                     $totalSlides = count($images);
                     foreach ($images as $key => $image) {
                         $currentImage = $key + 1;
-                        get_children_category_slides_images_card($image, $currentImage, $totalSlides);
+                        get_children_taxonomy_slides_images_card($image, $currentImage, $totalSlides);
                     }
                 ?>
 
@@ -70,7 +81,7 @@ if (!function_exists('bravada_child_display_children_category_grid_images_partia
                     $totalSlides = count($images);
                     foreach ($images as $key => $image) {
                         $currentImage = $key + 1;
-                        get_children_category_thumbnails_images_card($image, $currentImage, $totalSlides);
+                        get_children_taxonomy_thumbnails_images_card($image, $currentImage, $totalSlides);
                     }
                     ?>
                 </div>
@@ -86,7 +97,6 @@ if (!function_exists('bravada_child_display_children_category_grid_images_partia
 
             // Close the Modal
             function closeModal() {
-                console.log('TRYING TO CLOSE MODAL');
                 document.getElementById("bravada_child_slider_myModal").style.display = "none";
             }
 
@@ -127,14 +137,14 @@ if (!function_exists('bravada_child_display_children_category_grid_images_partia
     }
 }
 
-if (!function_exists('get_children_category_images_card')) {
-    function get_children_category_images_card ($image, int $currentImage) {
+if (!function_exists('get_children_taxonomy_images_card')) {
+    function get_children_taxonomy_images_card ($image, int $currentImage) {
         $image_url = get_bravada_child_image_url($image);
 
         ?>
             <div class="image-overlay">
                 <img
-                    class="bravada-child-children-category-image"
+                    class="bravada-child-children-taxonomy-image"
                     src="<?php echo $image_url ?>"
                     onclick="openModal();currentSlide(<?php echo $currentImage ?>)"
                 >
@@ -144,13 +154,13 @@ if (!function_exists('get_children_category_images_card')) {
 }
 
 
-if (!function_exists('get_children_category_images_card')) {
-    function get_children_category_images_card ($image, int $currentImage) {
+if (!function_exists('get_children_taxonomy_images_card')) {
+    function get_children_taxonomy_images_card ($image, int $currentImage) {
         $image_url = get_bravada_child_image_url($image);
 
         ?>
             <img
-                class="bravada-child-children-category-image"
+                class="bravada-child-children-taxonomy-image"
                 src="<?php echo $image_url ?>"
                 onclick="openModal();currentSlide(<?php echo $currentImage ?>)"
             >
@@ -158,8 +168,8 @@ if (!function_exists('get_children_category_images_card')) {
     }
 }
 
-if (!function_exists('get_children_category_slides_images_card')) {
-    function get_children_category_slides_images_card($image, int $currentImage, int $totalSlides) {
+if (!function_exists('get_children_taxonomy_slides_images_card')) {
+    function get_children_taxonomy_slides_images_card($image, int $currentImage, int $totalSlides) {
         // images slider
         $image_url = get_bravada_child_image_url($image);
 
@@ -174,8 +184,8 @@ if (!function_exists('get_children_category_slides_images_card')) {
     }
 }
 
-if (!function_exists('get_children_category_thumbnails_images_card')) {
-    function get_children_category_thumbnails_images_card($image, int $currentImage) {
+if (!function_exists('get_children_taxonomy_thumbnails_images_card')) {
+    function get_children_taxonomy_thumbnails_images_card($image, int $currentImage) {
         // images thumbnail
         $image_url = get_bravada_child_image_url($image);
 

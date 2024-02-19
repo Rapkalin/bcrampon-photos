@@ -20,23 +20,22 @@
 	wp_head();
 ?>
 </head>
-<body <?php body_class(); cryout_schema_microdata( 'body' );?>>
+<body
+    <?php body_class(); cryout_schema_microdata( 'body' );?>>
 	<?php do_action( 'wp_body_open' ); ?>
 	<?php cryout_body_hook(); ?>
-    <?php
-    /*
-     * The menu is transparent only if
-     * the current page is not a children category
-     */
-    $categoryMenuClass = "";
-    $category = is_category() ? get_category( get_query_var( 'cat' )) : null;
 
-    if (
-        $category &&
-        $category->parent !== 0 // If parent is not 0 then this is a children category
-    ) {
-        $categoryMenuClass =  "bravada_child_category_menu_active";
-    }
+    <?php
+        /*
+         * The menu is transparent only if
+         * the current page is not a children category
+         */
+        $taxonomyMenuClass = "";
+        $taxonomy = is_tax() ? get_queried_object() : null;
+
+        if ($taxonomy) {
+            $taxonomyMenuClass =  "bravada_child_taxonomy_menu_active";
+        }
     ?>
 
 	<div id="site-wrapper">
@@ -45,7 +44,7 @@
 
 		<div
                 id="site-header-main"
-                class="<?php echo $categoryMenuClass ?>"
+                class="<?php echo $taxonomyMenuClass ?>"
         >
 
 			<div class="site-header-top">
