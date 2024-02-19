@@ -283,7 +283,10 @@ if (!function_exists('bravada_child_meta_arrow')) {
         $achorTarget = is_category() ? "#content" : "#main";
         ?>
         <a href="<?php echo $achorTarget ?>" class="meta-arrow" tabindex="-1">
-            <i class="icon-arrow" title="<?php esc_attr_e( 'Read more', 'bravada' ) ?>"></i>
+            <div class="bravada-child-arrow-container">
+                <p class="bravada-child-arrow-text">Discover More</p>
+                <i class="icon-arrow" title="<?php esc_attr_e( 'Read more', 'bravada' ) ?>"></i>
+            </div>
         </a>
         <?php
     }
