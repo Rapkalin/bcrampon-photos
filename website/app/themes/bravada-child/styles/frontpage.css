@@ -1,10 +1,15 @@
-.bravada-child-category-images {
+.site-header-inside {
+    font-size: large;
+    font-weight: 500;
+}
+
+.bravada-child-frontpage-category-images {
     display: grid;
     align-items: stretch;
     grid-template-columns: repeat(2, 1fr);
 }
 
-img {
+.bravada-child-category-image {
     height: 40vh;
     width: 100%;
     object-fit: cover;
@@ -34,7 +39,7 @@ img {
     transform: translateX(0);
 }
 
-img:hover {
+.bravada-child-category-image:hover {
     transform: scale(1.1);
     transition: all .5s ease;
 }

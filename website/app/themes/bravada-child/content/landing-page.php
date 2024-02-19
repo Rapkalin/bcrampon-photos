@@ -6,7 +6,7 @@
  */
 
 bravada_lpslider();
-bravada_child_categories();
+// bravada_child_categories();
 // bravada_lpblocks();
 // bravada_lptext('one');
 // bravada_lpboxes(1);

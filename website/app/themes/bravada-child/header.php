@@ -20,21 +20,31 @@
 	wp_head();
 ?>
 </head>
-
 <body <?php body_class(); cryout_schema_microdata( 'body' );?>>
 	<?php do_action( 'wp_body_open' ); ?>
 	<?php cryout_body_hook(); ?>
+    <?php $categoryMenuClass = is_category() ? "bravada_child_category_menu_active" : "bravada_child_category_menu_inactive" ?>
+
 	<div id="site-wrapper">
 
 	<header id="masthead" class="cryout" <?php cryout_schema_microdata( 'header' ) ?>>
 
-		<div id="site-header-main">
+		<div
+                id="site-header-main"
+                class="<?php echo $categoryMenuClass ?>"
+        >
 
 			<div class="site-header-top">
 
 				<div class="site-header-inside">
 
-					<div id="header-menu" <?php cryout_schema_microdata( 'menu' ); ?>>
+                    <?php if (is_category()): ?>
+                        <div id="branding">
+                           <?php cryout_branding_hook(); ?>
+                       </div><!-- #branding -->
+                    <?php endif; ?>
+
+                    <div id="header-menu" <?php cryout_schema_microdata( 'menu' ); ?>>
 						<?php cryout_topmenu_hook(); ?>
 					</div><!-- #header-menu -->
 
@@ -55,20 +65,6 @@
 
 					<div class="site-header-inside">
 
-						<div id="branding">
-							<?php cryout_branding_hook(); ?>
-						</div><!-- #branding -->
-
-						<?php if ( bravada_check_empty_menu( 'primary' ) && ( has_nav_menu( 'primary' ) || ( true == cryout_get_option('theme_pagesmenu') ) ) ) { ?>
-						<div class='menu-burger'>
-							<button class='hamburger' type='button' aria-label="<?php esc_attr_e( 'Main menu', 'bravada' ) ?>">
-									<span></span>
-									<span></span>
-									<span></span>
-							</button>
-						</div>
-						<?php } ?>
-
 						<?php if ( bravada_check_empty_menu( 'top' ) && ( has_nav_menu( 'top' ) || ( true == cryout_get_option('theme_pagesmenu') ) ) ) { ?>
 						<nav id="access" aria-label="<?php esc_attr_e( 'Top Menu', 'bravada' ) ?>" <?php cryout_schema_microdata( 'menu' ); ?>>
 							<?php cryout_access_hook(); ?>
@@ -83,11 +79,28 @@
 
 		</div><!-- #site-header-main -->
 
+        <?php
+
+            /*
+             * We display the header image only if
+             * the current page is not a children category
+             */
+            $category = is_category() ? get_category( get_query_var( 'cat' )) : null;
+            if (
+                $category &&
+                $category->parent === 0 // If parent is not 0 then this is a children category
+            ):
+        ?>
+
 		<div id="header-image-main">
 			<div id="header-image-main-inside">
 				<?php cryout_headerimage_hook(); ?>
 			</div><!-- #header-image-main-inside -->
 		</div><!-- #header-image-main -->
+
+        <?php
+            endif;
+        ?>
 
 	</header><!-- #masthead -->
 

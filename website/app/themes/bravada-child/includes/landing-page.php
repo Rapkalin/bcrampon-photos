@@ -75,8 +75,12 @@ if ( empty( $image ) && empty( $title ) && empty( $content ) && empty( $lpslider
 			<div
                 class="lp-staticslider-image"
                 alt="<?php echo esc_attr( $title ) ?>"
-                style="background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)),
-                url(<?php echo esc_url( $image ); ?>);"
+                style="
+                background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)),
+                url(<?php echo esc_url( $image ); ?>);
+                background-position: center;
+                background-repeat: no-repeat;
+                "
             >
 		<?php } ?>
 		<div class="staticslider-caption">
@@ -399,35 +403,15 @@ function bravada_lpindex() {
 endif;
 
 if ( ! function_exists('bravada_child_categories') ):
-function bravada_child_categories() {
-    $post_categories = get_terms( array(
-    'taxonomy'   => 'category',
-    'hide_empty' => false,
-) );
-?>
-<div class="bravada-child-category-images">
-        <?php
-            foreach ($post_categories as $key => $post_category) {
-                 if ($post_category->slug !== 'uncategorized' && function_exists('z_taxonomy_image')) {
-                     // z_taxonomy_image($post_category->term_id);
-                     ?>
-                    <a href="<?php echo get_home_url() . "/category/$post_category->slug" ?>">
+    function bravada_child_categories() {
+        $post_categories = get_terms(
+            [
+                'taxonomy'   => 'category',
+                'hide_empty' => false,
+            ]
+        );
 
-                         <div class="image-overlay">
-                            <p class="text-overlay"><?php echo $post_category->name ?></p>
-                            <img
-                                class="bravada-child-category-image"
-                                src="<?php echo z_taxonomy_image_url($post_category->term_id) ?>"
-                                >
-                        </div>
-                    </a>
-
-                    <?php
-                 }
-            }
-        ?>
-</div>
-<?php
-}
+        do_action('get_front_page_category_grid_images_partial', $post_categories);
+    }
 endif;
 // FIN

@@ -4,6 +4,14 @@
  * Custom template tags for this child theme.
  */
 
+/*
+ * Include controllers
+ * Controllers are just a way to split the function for a specific page
+ */
+
+include_once 'controllers/frontPageController.php'; // category page
+include_once 'controllers/categoriesController.php'; // category page
+
 // require get_stylesheet_directory() . '/inc/template-tags-child.php';
 // require_once get_stylesheet_directory() . '/options/banner-event.php';
 
@@ -14,8 +22,11 @@ add_action( 'wp_enqueue_scripts', 'bravada_child_register_style', 11 );
 /* Load internationalisation / translations */
 add_action( 'after_setup_theme', 'bravada_child_theme_locale' );
 
+/* Override paretn theme */
+add_action( 'cryout_master_footer_hook', 'bravada_child_copyright_hook', 9 );
 add_action( 'cryout_master_footerbottom_hook', 'bravada_child_footerbottom_hook', 9 );
 add_action( 'cryout_headerimage_hook', 'bravada_child_header_image_hook', 9 );
+add_action( 'cryout_headerimage_hook', 'bravada_meta_arrow');
 add_action( 'init', 'bravada_child_footerbottom_hook', 9 );
 
 // Frontend side
@@ -56,6 +67,8 @@ function bravada_child_register_style()
     wp_register_style( 'bravada-child-style-frontpage', get_stylesheet_directory_uri() . '/styles/frontpage.css' );
     wp_enqueue_style( 'bravada-child-style-frontpage');
 
+    wp_register_style( 'bravada-child-style-categorypage', get_stylesheet_directory_uri() . '/styles/categorypage.css' );
+    wp_enqueue_style( 'bravada-child-style-categorypage');
 }
 
 /**
@@ -78,7 +91,6 @@ function bravada_child_footerbottom_hook()
     # Remove the bravada's theme footer function to overide it
     if (function_exists('bravada_master_footer')) {
         remove_action( 'cryout_master_footerbottom_hook', 'bravada_master_footer' );
-        add_action('cryout_master_footerbottom_hook', 'bravada_child_master_footer', 11);
     }
 }
 
@@ -88,18 +100,19 @@ function bravada_child_header_image_hook()
         remove_action ( 'cryout_headerimage_hook', 'bravada_header_image', 99 );
         add_action ( 'cryout_headerimage_hook', 'bravada_child_header_image', 99 );
     }
+
+    if (function_exists('bravada_meta_arrow')) {
+        remove_action('cryout_headerimage_hook', 'bravada_meta_arrow');
+        add_action ( 'cryout_headerimage_hook', 'bravada_child_meta_arrow' );
+    }
 }
 
-/**
- * Output the new footer
- * @return void
- */
-function bravada_child_master_footer()
+function bravada_child_copyright_hook()
 {
-    do_action( 'cryout_footer_hook' );
-    echo '<div style="display:block; margin: 0.5em auto;">' . __( "Site by", "bravada" ) .
-        '<a target="_blank" href="' . "https://github.com/Rapkalin/" . '" title="';
-    echo 'Site by Freelance developer Rapkalin"> ' . 'Rapkalin</a> based on the Bravada Theme';
+    if (function_exists('bravada_copyright')) {
+        remove_action ( 'cryout_master_footer_hook', 'bravada_copyright' );
+        add_action ( 'cryout_master_footer_hook', 'bravada_child_copyright' );
+    }
 }
 
 /**
@@ -228,14 +241,16 @@ function bravada_child_get_all_sorted_cities(array $country_categories) : array
 
 if ( ! function_exists( 'bravada_child_header_image' ) ) :
     function bravada_child_header_image() {
+        $category = is_category() ? get_category( get_query_var( 'cat' )) : null;
+
         if ( cryout_on_landingpage() && cryout_get_option('theme_lpslider') != 3) return; // if on landing page and static slider not set to header image, exit.
         $header_image = bravada_header_image_url();
         if ( is_front_page() && function_exists( 'the_custom_header_markup' ) && has_header_video() ) {
             the_custom_header_markup();
-        } elseif (is_category()) {
-            $cat_id = get_query_var('cat');
-            // get_category($cat_id));
-            $category_image = z_taxonomy_image_url($cat_id);
+        } elseif (
+                $category
+        ) {
+            $category_image = z_taxonomy_image_url($category->term_id);
             ?>
             <div id="header-overlay"></div>
             <div class="header-image" <?php cryout_echo_bgimage( esc_url( $category_image ) ) ?>></div>
@@ -262,3 +277,33 @@ if ( ! function_exists( 'bravada_child_header_image' ) ) :
         }
     } // bravada_header_image()
 endif;
+
+if (!function_exists('bravada_child_meta_arrow')) {
+    function bravada_child_meta_arrow () {
+        $achorTarget = is_category() ? "#content" : "#main";
+        ?>
+        <a href="<?php echo $achorTarget ?>" class="meta-arrow" tabindex="-1">
+            <i class="icon-arrow" title="<?php esc_attr_e( 'Read more', 'bravada' ) ?>"></i>
+        </a>
+        <?php
+    }
+}
+
+if (!function_exists('bravada_child_copyright')) {
+    function bravada_child_copyright() {
+
+        echo '<div id="site-copyright">' . do_shortcode( cryout_get_option( 'theme_copyright' ) ). '</div>';
+        echo '<div style="display:block; margin: 0.5em auto;">' . __( "Site by", "bravada" ) .
+            '<a target="_blank" href="' . "https://github.com/Rapkalin/" . '" title="';
+        echo 'Site by Freelance developer Rapkalin"> ' . 'Rapkalin</a> based on the Bravada Theme</div>';
+        if ( has_nav_menu( 'footer' ) )
+            wp_nav_menu( array(
+                'container_class'	=> 'footermenu',
+                'theme_location'	=> 'footer',
+                'after'				=> '<span class="sep">/</span>',
+                'depth'				=> 1
+            ) );
+        ?> </div> <?php
+
+    }
+}

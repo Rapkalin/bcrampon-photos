@@ -1,0 +1,174 @@
+.bravada_child_category_menu_active {
+    position: unset !important;
+}
+
+.bravada-child-categorypage-category-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 80vw;
+    column-gap: 3vh;
+    row-gap: 3vh;
+}
+
+.bravada-child-category-grid-link {
+    margin: 2vh 1vh 0 1vh;
+}
+
+#bravada-child-category-grid-content {
+    display: flex;
+    justify-content: center;
+    margin-top: 1vh;
+}
+
+.bravada-child-children-category-image {
+    height: 40vh;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+    overflow: hidden;
+}
+
+.bravada_child_slider_row > .bravada_child_slider_column {
+    padding: 0 8px;
+}
+
+.bravada_child_slider_row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Create four equal columns that floats next to eachother */
+.bravada_child_slider_column {
+    float: left;
+    height: 15vh;
+}
+
+/* The Modal (background) */
+.bravada_child_slider_modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    background-color: black;
+}
+
+/* Modal Content */
+.bravada_child_slider_modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    max-width: 85vw;
+}
+
+/* The Close Button */
+.bravada_child_slider_close {
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.bravada_child_slider_close:hover,
+.bravada_child_slider_close:focus {
+    color: #999;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Hide the slides by default */
+.bravada_child_slider_mySlides {
+    display: none;
+    height: 65vh;
+}
+
+/* Next & previous buttons */
+.bravada_child_slider_prev,
+.bravada_child_slider_next {
+    cursor: pointer;
+    position: absolute;
+    top: 35%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+    background-color: black
+;
+}
+
+/* Position the "next button" to the right */
+.bravada_child_slider_next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.bravada_child_slider_prev:hover,
+.bravada_child_slider_next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.bravada_child_slider_numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* Caption text */
+.bravada_child_slider_caption-container {
+    text-align: center;
+    background-color: black;
+    padding: 2px 16px;
+    color: white;
+}
+
+img.bravada_child_slider_demo {
+    opacity: 0.6;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.bravada_child_slider_active,
+.bravada_child_slider_demo:hover {
+    opacity: 1;
+}
+
+img.bravada_child_slider_hover-shadow {
+    transition: 0.3s;
+}
+
+.bravada_child_slider_hover-shadow:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.bravada_child_slider_thumbnail {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.bravada_child_image_slider {
+    max-width: 100%;
+    height: 100%;
+    border: 0;
+    object-fit: contain;
+}
