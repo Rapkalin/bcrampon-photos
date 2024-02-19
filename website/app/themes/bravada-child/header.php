@@ -23,7 +23,21 @@
 <body <?php body_class(); cryout_schema_microdata( 'body' );?>>
 	<?php do_action( 'wp_body_open' ); ?>
 	<?php cryout_body_hook(); ?>
-    <?php $categoryMenuClass = is_category() ? "bravada_child_category_menu_active" : "bravada_child_category_menu_inactive" ?>
+    <?php
+    /*
+     * The menu is transparent only if
+     * the current page is not a children category
+     */
+    $categoryMenuClass = "";
+    $category = is_category() ? get_category( get_query_var( 'cat' )) : null;
+
+    if (
+        $category &&
+        $category->parent !== 0 // If parent is not 0 then this is a children category
+    ) {
+        $categoryMenuClass =  "bravada_child_category_menu_active";
+    }
+    ?>
 
 	<div id="site-wrapper">
 

@@ -55,13 +55,13 @@
     width: 100%;
     height: 100vh;
     overflow: auto;
-    background-color: black;
+    background-color: #15191e;
 }
 
 /* Modal Content */
 .bravada_child_slider_modal-content {
     position: relative;
-    background-color: #fefefe;
+    background-color: #15191e;
     margin: auto;
     padding: 0;
     max-width: 85vw;
@@ -106,7 +106,7 @@
     border-radius: 0 3px 3px 0;
     user-select: none;
     -webkit-user-select: none;
-    background-color: black
+    background-color: #15191e
 ;
 }
 
@@ -119,7 +119,7 @@
 /* On hover, add a black background color with a little bit see-through */
 .bravada_child_slider_prev:hover,
 .bravada_child_slider_next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(17, 20, 24, 0.9);
 }
 
 /* Number text (1/3 etc) */
@@ -134,7 +134,7 @@
 /* Caption text */
 .bravada_child_slider_caption-container {
     text-align: center;
-    background-color: black;
+    background-color: #15191e;
     padding: 2px 16px;
     color: white;
 }
