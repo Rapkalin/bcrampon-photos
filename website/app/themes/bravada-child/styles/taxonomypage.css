@@ -118,19 +118,17 @@
 }
 
 .bravada-child-taxonomy-image {
-    height: 40vh;
+    height: 100%;
     width: 100%;
     object-fit: cover;
-    position: absolute;
-    top: 0;
-    right: 0;
     z-index: -1;
     overflow: hidden;
+    position: relative;
+    transition: all .5s ease;
 }
 
 .bravada-child-taxonomy-image:hover {
     transform: scale(1.1);
-    transition: all .5s ease;
 }
 
 /* Position the "next button" to the right */

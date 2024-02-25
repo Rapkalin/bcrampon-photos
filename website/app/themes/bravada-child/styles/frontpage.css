@@ -23,7 +23,7 @@
 .image-overlay {
     display: flex;
     background-color: rgba(0,0,0,0.3);
-    height: 40vh;
+    height: 20vw;
     width: 100%;
     position: relative;
     color: white;
@@ -44,6 +44,7 @@
     font-size: x-large;
     font-weight: bold;
     font-family: 'Muli';
+    position: absolute;
 }
 
 #site-header-main,
