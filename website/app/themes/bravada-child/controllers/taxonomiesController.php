@@ -6,7 +6,9 @@ add_action('display_children_taxonomy_grid_images_partial', 'bravada_child_displ
 if (!function_exists('bravada_child_get_taxonomy_grid_images_partial')) {
     function bravada_child_get_taxonomy_grid_images_partial(array $children_ids)
     {
-        ?><div class="bravada-child-taxonomypage-taxonomy-images"><?php
+        $gridClass = bravada_child_get_grid_images_class($children_ids);
+
+        ?><div class="<?php echo $gridClass?>"><?php
             foreach ($children_ids as $child_id) {
                 $child_taxonomy = get_term_by('term_taxonomy_id', $child_id);
                 get_taxonomy_image_card($child_taxonomy);
@@ -46,7 +48,7 @@ if (!function_exists('bravada_child_display_children_taxonomy_grid_images_partia
             $images = $images[0];
         }
 
-        ?><div class="bravada-child-taxonomypage-taxonomy-images"><?php
+        ?><div class="bravada-child-taxonomypage-taxonomy-3-images"><?php
         foreach ($images as $key => $image) {
             $currentImage = $key + 1;
             get_children_taxonomy_images_card($image, $currentImage);
@@ -203,6 +205,18 @@ if (!function_exists('get_children_taxonomy_thumbnails_images_card')) {
 if (!function_exists('get_bravada_child_image_url')) {
     function get_bravada_child_image_url ($image) {
         return preg_replace('/wp-content/', 'app', $image->guid);
+    }
+}
+
+if (!function_exists('bravada_child_get_grid_images_class')) {
+    function bravada_child_get_grid_images_class($children_ids) : string {
+        if (count($children_ids) === 1) {
+            return 'bravada-child-taxonomypage-taxonomy-1-image';
+        } elseif (count($children_ids) === 2) {
+            return 'bravada-child-taxonomypage-taxonomy-2-images';
+        } else {
+            return 'bravada-child-taxonomypage-taxonomy-3-images';
+        }
     }
 }
 

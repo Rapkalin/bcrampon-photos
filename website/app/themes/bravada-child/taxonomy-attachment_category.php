@@ -42,6 +42,7 @@ foreach ($taxonomies_to_hide as $taxonomy_slug) {
     $taxonomy_ids_to_hide[] = get_term_by('slug', $taxonomy_slug, 'attachment_category')->term_taxonomy_id;
 }
 $children_ids = array_diff($children_ids, $taxonomy_ids_to_hide); // We remove the unwanted taxonomies
+$pluralOrSingular = count($children_ids) > 1 ? "s" : "";
 
 ?>
     <?php
@@ -51,7 +52,16 @@ $children_ids = array_diff($children_ids, $taxonomy_ids_to_hide); // We remove t
         ):
     ?>
 
-    <div id="bravada-child-taxonomy-title"><?php echo $current_taxonomy->name . " - " .  $current_taxonomy->count . " images" ?></div>
+   <!-- <div id="bravada-child-taxonomy-cover" class="bravada-child-image-overlay-cover">
+        <span id="bravada-child-taxonomy-title" class="bravada-child-text-overlay-cover"><?php /*echo $current_taxonomy->name . "<br>" .  count($children_ids) . " categorie$pluralOrSingular" */?></span>
+        <img
+                src="<?php /*echo z_taxonomy_image_url($current_taxonomy->term_id) */?>"
+                alt=""
+                class="bravada-child-taxonomy-image"
+        >
+
+    </div> -->
+    <div id="bravada-child-taxonomy-title"><?php echo $current_taxonomy->name . " - " .  count($children_ids) . " categorie$pluralOrSingular" ?></div>
     <div id="bravada-child-taxonomy-grid-content">
         <?php
             /*

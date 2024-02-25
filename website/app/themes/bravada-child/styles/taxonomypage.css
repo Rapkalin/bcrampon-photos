@@ -2,9 +2,25 @@
     position: unset !important;
 }
 
-.bravada-child-taxonomypage-taxonomy-images {
+.bravada-child-taxonomypage-taxonomy-3-images {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    width: 80vw;
+    column-gap: 3vh;
+    row-gap: 3vh;
+}
+
+.bravada-child-taxonomypage-taxonomy-2-images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 80vw;
+    column-gap: 3vh;
+    row-gap: 3vh;
+}
+
+.bravada-child-taxonomypage-taxonomy-1-image {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
     width: 80vw;
     column-gap: 3vh;
     row-gap: 3vh;
@@ -26,14 +42,6 @@
     object-fit: cover;
     object-position: top;
     overflow: hidden;
-}
-
-#bravada-child-taxonomy-title {
-    display: flex;
-    justify-content: center;
-    color: white;
-    margin: 5vh 0;
-    font-size: xxx-large;
 }
 
 .bravada_child_slider_row > .bravada_child_slider_column {
@@ -63,13 +71,13 @@
     width: 100%;
     height: 100vh;
     overflow: auto;
-    background-color: #15191e;
+    background-color: #141316;
 }
 
 /* Modal Content */
 .bravada_child_slider_modal-content {
     position: relative;
-    background-color: #15191e;
+    background-color: #141316;
     margin: auto;
     padding: 0;
     max-width: 85vw;
@@ -114,7 +122,7 @@
     border-radius: 0 3px 3px 0;
     user-select: none;
     -webkit-user-select: none;
-    background-color: #15191e;
+    background-color: #141316;
 }
 
 .bravada-child-taxonomy-image {
@@ -155,7 +163,7 @@
 /* Caption text */
 .bravada_child_slider_caption-container {
     text-align: center;
-    background-color: #15191e;
+    background-color: #141316;
     padding: 2px 16px;
     color: white;
 }
@@ -192,4 +200,35 @@ img.bravada_child_slider_hover-shadow {
     height: 100%;
     border: 0;
     object-fit: contain;
+}
+
+#bravada-child-taxonomy-title {
+    display: flex;
+    justify-content: center;
+    color: #334760;
+    font-size: xx-large;
+    text-align: center;
+    font-weight: 700;
+    background-color: #18202b;
+    margin: 5vh 10vw;
+}
+
+.bravada-child-text-overlay-cover {
+    font-size: x-large;
+    font-weight: bold;
+    font-family: 'Muli';
+    position: absolute;
+}
+
+.bravada-child-image-overlay-cover {
+    display: flex;
+    background-color: rgba(0,0,0,0.5);
+    height: 20vw;
+    width: 100%;
+    position: relative;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+    overflow: hidden;
 }
