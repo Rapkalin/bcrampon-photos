@@ -4,6 +4,12 @@ add_action('display_taxonomy_grid_images_partial', 'bravada_child_get_taxonomy_g
 add_action('display_children_taxonomy_grid_images_partial', 'bravada_child_display_children_taxonomy_grid_images_partial');
 
 if (!function_exists('bravada_child_get_taxonomy_grid_images_partial')) {
+
+    /**
+     * Return a grid of taxonomy cards
+     * @param array $children_ids
+     * @return void
+     */
     function bravada_child_get_taxonomy_grid_images_partial(array $children_ids)
     {
         $gridClass = bravada_child_get_grid_images_class($children_ids);
@@ -18,6 +24,12 @@ if (!function_exists('bravada_child_get_taxonomy_grid_images_partial')) {
 }
 
 if (!function_exists('get_taxonomy_image_card')) {
+
+    /**
+     * Return a taxonomy card
+     * @param $child_taxonomy
+     * @return void
+     */
     function get_taxonomy_image_card($child_taxonomy)
     {
         ?>
@@ -36,6 +48,12 @@ if (!function_exists('get_taxonomy_image_card')) {
 }
 
 if (!function_exists('bravada_child_display_children_taxonomy_grid_images_partial')) {
+
+    /**
+     * Return the grid images of a taxonomy
+     * @param array $images
+     * @return void
+     */
     function bravada_child_display_children_taxonomy_grid_images_partial (array $images) {
 
         /*
@@ -64,7 +82,7 @@ if (!function_exists('bravada_child_display_children_taxonomy_grid_images_partia
                     $totalSlides = count($images);
                     foreach ($images as $key => $image) {
                         $currentImage = $key + 1;
-                        get_children_taxonomy_slides_images_card($image, $currentImage, $totalSlides);
+                        get_children_taxonomy_slides_images_card_for_slideshow($image, $currentImage, $totalSlides);
                     }
                 ?>
 
@@ -80,10 +98,9 @@ if (!function_exists('bravada_child_display_children_taxonomy_grid_images_partia
                 <div class="bravada_child_slider_thumbnail">
                     <!-- Thumbnail image controls -->
                     <?php
-                    $totalSlides = count($images);
                     foreach ($images as $key => $image) {
                         $currentImage = $key + 1;
-                        get_children_taxonomy_thumbnails_images_card($image, $currentImage, $totalSlides);
+                        get_children_taxonomy_thumbnails_images_card_for_slideshow($image, $currentImage);
                     }
                     ?>
                 </div>
@@ -134,12 +151,18 @@ if (!function_exists('bravada_child_display_children_taxonomy_grid_images_partia
             }
         </script>
 
-
         <?php
     }
 }
 
 if (!function_exists('get_children_taxonomy_images_card')) {
+
+    /**
+     * Return an image of the grid
+     * @param $image
+     * @param int $currentImage
+     * @return void
+     */
     function get_children_taxonomy_images_card ($image, int $currentImage) {
         $image_url = get_bravada_child_image_url($image);
 
@@ -155,23 +178,16 @@ if (!function_exists('get_children_taxonomy_images_card')) {
     }
 }
 
+if (!function_exists('get_children_taxonomy_slides_images_card_for_slideshow')) {
 
-if (!function_exists('get_children_taxonomy_images_card')) {
-    function get_children_taxonomy_images_card ($image, int $currentImage) {
-        $image_url = get_bravada_child_image_url($image);
-
-        ?>
-            <img
-                class="bravada-child-children-taxonomy-image"
-                src="<?php echo $image_url ?>"
-                onclick="openModal();currentSlide(<?php echo $currentImage ?>)"
-            >
-        <?php
-    }
-}
-
-if (!function_exists('get_children_taxonomy_slides_images_card')) {
-    function get_children_taxonomy_slides_images_card($image, int $currentImage, int $totalSlides) {
+    /**
+     * Return an image slide for the slideshow
+     * @param $image
+     * @param int $currentImage
+     * @param int $totalSlides
+     * @return void
+     */
+    function get_children_taxonomy_slides_images_card_for_slideshow($image, int $currentImage, int $totalSlides) {
         // images slider
         $image_url = get_bravada_child_image_url($image);
 
@@ -179,15 +195,22 @@ if (!function_exists('get_children_taxonomy_slides_images_card')) {
             <div class="bravada_child_slider_mySlides">
                 <div class="bravada_child_slider_numbertext"><?php echo $currentImage . " / " . $totalSlides ?></div>
                 <img class="bravada_child_image_slider"
-                     src="<?php echo $image_url ?>" style="width:100%"git diff
+                     src="<?php echo $image_url ?>" style="width:100%"
                 >
             </div>
         <?php
     }
 }
 
-if (!function_exists('get_children_taxonomy_thumbnails_images_card')) {
-    function get_children_taxonomy_thumbnails_images_card($image, int $currentImage) {
+if (!function_exists('get_children_taxonomy_thumbnails_images_card_for_slideshow')) {
+
+    /**
+     * Return a thumbnail image for the slideshow
+     * @param $image
+     * @param int $currentImage
+     * @return void
+     */
+    function get_children_taxonomy_thumbnails_images_card_for_slideshow($image, int $currentImage) {
         // images thumbnail
         $image_url = get_bravada_child_image_url($image);
 
@@ -203,12 +226,24 @@ if (!function_exists('get_children_taxonomy_thumbnails_images_card')) {
 }
 
 if (!function_exists('get_bravada_child_image_url')) {
+
+    /**
+     * Return the right URL for a given image
+     * @param $image
+     * @return array|string|string[]|null
+     */
     function get_bravada_child_image_url ($image) {
         return preg_replace('/wp-content/', 'app', $image->guid);
     }
 }
 
 if (!function_exists('bravada_child_get_grid_images_class')) {
+
+    /**
+     * Returns a string with the right class to use
+     * @param $children_ids
+     * @return string
+     */
     function bravada_child_get_grid_images_class($children_ids) : string {
         if (count($children_ids) === 1) {
             return 'bravada-child-taxonomypage-taxonomy-1-image';
@@ -217,6 +252,61 @@ if (!function_exists('bravada_child_get_grid_images_class')) {
         } else {
             return 'bravada-child-taxonomypage-taxonomy-3-images';
         }
+    }
+}
+
+if (!function_exists('bravada_child_get_children_for_this_taxonomy')) {
+
+    /**
+     * Returns an array of term objects
+     * @param int $taxonomy_id
+     * @return array
+     */
+    function bravada_child_get_children_for_this_taxonomy(int $taxonomy_id) : array {
+        // Get children of current taxonomy
+        $args = array(
+            'child_of' => $taxonomy_id,
+            'taxonomy' => 'attachment_category',
+            'hide_empty' => 0,
+            'hierarchical' => true,
+            'depth'  => 1,
+        );
+
+        return get_terms( $args );
+    }
+}
+
+if (!function_exists('bravada_child_get_children_ids_for_this_taxonomy')) {
+
+    /**
+     * Returns an array of ids
+     * @param $current_taxonomy
+     * @param array $children_taxonomies
+     * @return array
+     */
+    function bravada_child_get_children_ids_for_this_taxonomy($current_taxonomy, array $children_taxonomies) : array {
+        $children_ids = [];
+        foreach ($children_taxonomies as $children_taxonomy) {
+            if ($children_taxonomy->parent === $current_taxonomy->term_taxonomy_id)
+                $children_ids[] = $children_taxonomy->term_taxonomy_id;
+        }
+
+        /*
+         * Those taxonomies are empty
+         * We hide them temporarily
+         */
+        $taxonomies_to_hide = [
+            'bcrampon-travels-central-america',
+            'bcrampon-travels-south-america',
+            'bcrampon-nature-cityscapes',
+        ];
+        $taxonomy_ids_to_hide = [];
+
+        foreach ($taxonomies_to_hide as $taxonomy_slug) {
+            $taxonomy_ids_to_hide[] = get_term_by('slug', $taxonomy_slug, 'attachment_category')->term_taxonomy_id;
+        }
+
+        return array_diff($children_ids, $taxonomy_ids_to_hide); // We remove the unwanted taxonomies
     }
 }
 

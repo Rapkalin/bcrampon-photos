@@ -13,35 +13,10 @@ if ($current_taxonomy->parent !== 0) {
 $taxonomy_id = $current_taxonomy->term_id;
 
 // Get children of current taxonomy
-$args = array(
-    'child_of' => $taxonomy_id,
-    'taxonomy' => 'attachment_category',
-    'hide_empty' => 0,
-    'hierarchical' => true,
-    'depth'  => 1,
-);
-$children_taxonomies = get_terms( $args );
-$children_ids = [];
-foreach ($children_taxonomies as $children_taxonomy) {
-    if ($children_taxonomy->parent === $current_taxonomy->term_taxonomy_id)
-    $children_ids[] = $children_taxonomy->term_taxonomy_id;
-}
+$children_taxonomies = bravada_child_get_children_for_this_taxonomy($taxonomy_id);
+$children_ids = bravada_child_get_children_ids_for_this_taxonomy($current_taxonomy, $children_taxonomies);
 
-/*
- * Those taxonomies are empty
- * We hide them temporarily
- */
-$taxonomies_to_hide = [
-        'bcrampon-travels-central-america',
-        'bcrampon-travels-south-america',
-        'bcrampon-nature-cityscapes',
-];
-$taxonomy_ids_to_hide = [];
-
-foreach ($taxonomies_to_hide as $taxonomy_slug) {
-    $taxonomy_ids_to_hide[] = get_term_by('slug', $taxonomy_slug, 'attachment_category')->term_taxonomy_id;
-}
-$children_ids = array_diff($children_ids, $taxonomy_ids_to_hide); // We remove the unwanted taxonomies
+// Plural of Singular for taxonomy title
 $pluralOrSingular = count($children_ids) > 1 ? "s" : "";
 
 ?>
