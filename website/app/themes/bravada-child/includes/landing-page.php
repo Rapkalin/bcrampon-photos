@@ -76,7 +76,7 @@ if ( empty( $image ) && empty( $title ) && empty( $content ) && empty( $lpslider
                 class="lp-staticslider-image"
                 alt="<?php echo esc_attr( $title ) ?>"
                 style="
-                background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)),
+                background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.1)),
                 url(<?php echo esc_url( $image ); ?>);
                 background-position: center;
                 background-repeat: no-repeat;

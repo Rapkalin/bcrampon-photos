@@ -73,3 +73,7 @@
 .bravada-over-menu .header-fixed.site-header-bottom #access > div > ul > li > a {
     color: white;
 }
+
+.lp-staticslider .staticslider-caption {
+    padding-top: 180px;
+}

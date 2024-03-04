@@ -23,7 +23,7 @@ $pluralOrSingular = count($children_ids) > 1 ? "s" : "";
     <?php
         if (
             $current_taxonomy->parent === 0 ||
-            $is_current_taxonomy_parent_travel
+            !empty($children_ids)
         ):
     ?>
 
