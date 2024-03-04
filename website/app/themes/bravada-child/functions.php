@@ -69,6 +69,9 @@ function bravada_child_register_style()
 
     wp_register_style( 'bravada-child-style-taxonomypage', get_stylesheet_directory_uri() . '/styles/taxonomypage.css');
     wp_enqueue_style( 'bravada-child-style-taxonomypage');
+
+    wp_register_style( 'bravada-child-style-biopage', get_stylesheet_directory_uri() . '/styles/biopage.css');
+    wp_enqueue_style( 'bravada-child-style-biopage');
 }
 
 /**

@@ -30,11 +30,12 @@
          * The menu is transparent only if
          * the current page is not a children category
          */
-        $taxonomyMenuClass = "";
+        $extraMenuClass = "";
         $taxonomy = is_tax() ? get_queried_object() : null;
+        $customTemplatePage = is_page_template('template-bio-page.php');
 
-        if ($taxonomy) {
-            $taxonomyMenuClass =  "bravada_child_taxonomy_menu_active";
+        if ($taxonomy || $customTemplatePage) {
+            $extraMenuClass =  "bravada-over-menu-position-unset";
         }
     ?>
 
@@ -44,7 +45,7 @@
 
 		<div
                 id="site-header-main"
-                class="<?php echo $taxonomyMenuClass ?>"
+                class="<?php echo $extraMenuClass ?>"
         >
 
 			<div class="site-header-top">

@@ -3,6 +3,9 @@ Theme Name: Bravada child
 Template: bravada
 Text Domain: bcrampon
 */
+.bravada-over-menu-position-unset {
+    position: unset !important;
+}
 
 body {
     background-color: #15191e;
@@ -19,4 +22,9 @@ body {
 
 #colophon, #footer {
     background-color: #15191e;
+}
+
+#bravada-child-fixed-bottom {
+    position: fixed;
+    bottom: 0px;
 }
