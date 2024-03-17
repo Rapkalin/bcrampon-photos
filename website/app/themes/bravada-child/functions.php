@@ -9,8 +9,8 @@
  * Controllers are just a way to split the function for a specific page
  */
 
-include_once 'controllers/frontPageController.php'; // front page
-include_once 'controllers/taxonomiesController.php'; // taxonomy pages
+include_once 'functions/frontPageFunctions.php'; // front page
+include_once 'functions/taxonomiesFunctions.php'; // taxonomy pages
 
 // require get_stylesheet_directory() . '/inc/template-tags-child.php';
 // require_once get_stylesheet_directory() . '/options/banner-event.php';

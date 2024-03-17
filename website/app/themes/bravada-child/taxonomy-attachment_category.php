@@ -16,6 +16,7 @@ $taxonomy_id = $current_taxonomy->term_id;
 $children_taxonomies = bravada_child_get_children_for_this_taxonomy($taxonomy_id);
 $children_ids = bravada_child_get_children_ids_for_this_taxonomy($current_taxonomy, $children_taxonomies);
 
+
 // Plural of Singular for taxonomy title
 $pluralOrSingular = count($children_ids) > 1 ? "s" : "";
 
@@ -75,7 +76,7 @@ $pluralOrSingular = count($children_ids) > 1 ? "s" : "";
     ?>
         <div id="bravada-child-taxonomy-title"><?php echo $current_taxonomy->name . " - " .  $current_taxonomy->count . " image$pluralOrSingular" ?></div>
         <div id="bravada-child-taxonomy-grid-content">
-            <?php do_action('display_children_taxonomy_grid_images_partial', $images); ?>
+            <?php do_action('display_children_taxonomy_grid_images_partial', array_reverse($images)); ?>
         </div>
 
     <?php

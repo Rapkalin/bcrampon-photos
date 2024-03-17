@@ -95,20 +95,23 @@ if (!function_exists('bravada_child_display_children_taxonomy_grid_images_partia
                     <p id="bravada_child_slider_caption"></p>
                 </div>
 
+                <!-- Thumbnail image controls
                 <div class="bravada_child_slider_thumbnail">
-                    <!-- Thumbnail image controls -->
-                    <?php
+                     <?php /*
                     foreach ($images as $key => $image) {
                         $currentImage = $key + 1;
                         get_children_taxonomy_thumbnails_images_card_for_slideshow($image, $currentImage);
                     }
-                    ?>
-                </div>
+                   */ ?>
+                </div>-->
 
             </div>
         </div>
 
         <script>
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
             // Open the Modal
             function openModal() {
                 document.getElementById("bravada_child_slider_myModal").style.display = "block";
@@ -119,12 +122,9 @@ if (!function_exists('bravada_child_display_children_taxonomy_grid_images_partia
                 document.getElementById("bravada_child_slider_myModal").style.display = "none";
             }
 
-            var slideIndex = 1;
-            showSlides(slideIndex);
-
             // Next/previous controls
             function plusSlides(n) {
-                showSlides(slideIndex += n);
+                showSlides(slideIndex += n); // Modification ici
             }
 
             // Thumbnail image controls
@@ -135,20 +135,25 @@ if (!function_exists('bravada_child_display_children_taxonomy_grid_images_partia
             function showSlides(n) {
                 var i;
                 var slides = document.getElementsByClassName("bravada_child_slider_mySlides");
-                var dots = document.getElementsByClassName("bravada_child_slider_demo");
+                // var dots = document.getElementsByClassName("bravada_child_slider_demo");
                 var captionText = document.getElementById("bravada_child_slider_caption");
                 if (n > slides.length) {slideIndex = 1}
                 if (n < 1) {slideIndex = slides.length}
                 for (i = 0; i < slides.length; i++) {
                     slides[i].style.display = "none";
                 }
-                for (i = 0; i < dots.length; i++) {
+                /* for (i = 0; i < dots.length; i++) {
                     dots[i].className = dots[i].className.replace(" bravada_child_slider_active", "");
-                }
+                }*/
                 slides[slideIndex-1].style.display = "block";
-                dots[slideIndex-1].className += " bravada_child_slider_active";
-                captionText.innerHTML = dots[slideIndex-1].alt;
+                /*dots[slideIndex-1].className += " bravada_child_slider_active";*/
+                /*captionText.innerHTML = dots[slideIndex-1].alt;*/
             }
+
+            // Appeler la fonction plusSlides() toutes les 3 secondes
+            setInterval(function() {
+                plusSlides(1); // Défiler vers le slide suivant
+            }, 3000); // 3000 millisecondes = 3 secondes
         </script>
 
         <?php
@@ -295,11 +300,7 @@ if (!function_exists('bravada_child_get_children_ids_for_this_taxonomy')) {
          * Those taxonomies are empty
          * We hide them temporarily
          */
-        $taxonomies_to_hide = [
-            'bcrampon-travels-central-america',
-            'bcrampon-travels-south-america',
-            'bcrampon-nature-cityscapes',
-        ];
+        $taxonomies_to_hide = [];
         $taxonomy_ids_to_hide = [];
 
         foreach ($taxonomies_to_hide as $taxonomy_slug) {

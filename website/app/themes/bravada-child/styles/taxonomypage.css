@@ -99,7 +99,9 @@
 /* Hide the slides by default */
 .bravada_child_slider_mySlides {
     display: none;
-    height: 65vh;
+    height: 80vh;
+    /* height: 65vh; To put back if the thumbnails are added */
+    transition: opacity 0.5s ease;
 }
 
 /* Next & previous buttons */
@@ -107,7 +109,8 @@
 .bravada_child_slider_next {
     cursor: pointer;
     position: absolute;
-    top: 35%;
+    top:50%;
+    /* top: 35%; To put back if the thumbnails are added */
     width: auto;
     padding: 16px;
     margin-top: -50px;
