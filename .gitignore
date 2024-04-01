@@ -45,6 +45,8 @@ website/app/plugins/svg-support
 website/app/plugins/media-library-assistant
 website/app/plugins/categories-images
 website/app/plugins/imagify
+website/app/plugins/webp-uploads
+website/app/plugins/wpforms-lite
 
 # Global gitignore setup
 /composer.lock
