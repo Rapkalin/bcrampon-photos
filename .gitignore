@@ -47,6 +47,7 @@ website/app/plugins/categories-images
 website/app/plugins/imagify
 website/app/plugins/webp-uploads
 website/app/plugins/wpforms-lite
+website/app/plugins/dominant-color-images
 
 # Global gitignore setup
 /composer.lock

@@ -1,6 +1,8 @@
 <?php
 /** Enable W3 Total Cache */
 define('WP_CACHE', true); // Added by W3 Total Cache
+define( 'WP_DEBUG', true );
+define( 'WP_DEBUG_LOG', true );
 
 /**
  * The base configuration for WordPress
@@ -92,7 +94,6 @@ $table_prefix = 'wp_';
  *
  * @link https://wordpress.org/documentation/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', true );
 
 /* Add any custom values between this line and the "stop editing" line. */
 

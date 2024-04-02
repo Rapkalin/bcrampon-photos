@@ -18,23 +18,6 @@
 </IfModule>
 
 
-# BEGIN W3TC WEBP
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteCond %{HTTP_ACCEPT} image/webp
-    RewriteCond %{REQUEST_FILENAME} (.+)\.(jpe?g|png|gif)$
-    RewriteCond %1\.webp -f
-    RewriteCond %{QUERY_STRING} !type=original
-    RewriteRule (.+)\.(jpe?g|png|gif)$ $1.webp [NC,T=image/webp,E=webp,L]
-</IfModule>
-<IfModule mod_headers.c>
-    <FilesMatch "\.(jpe?g|png|gif)$">
-        Header append Vary Accept
-    </FilesMatch>
-</IfModule>
-AddType image/webp .webp
-# END W3TC WEBP
-
 # BEGIN W3TC Browser Cache
 <IfModule mod_mime.c>
     AddType text/css .css
