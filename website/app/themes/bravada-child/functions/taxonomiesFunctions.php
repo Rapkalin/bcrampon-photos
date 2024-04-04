@@ -98,38 +98,37 @@ if (!function_exists('bravada_child_display_children_taxonomy_grid_images_partia
                         get_children_taxonomy_slides_images_card_for_slideshow($image, $currentImage, $totalSlides);
                     }
                 ?>
-
-                <!-- Next/previous controls -->
-                <a class="bravada_child_slider_prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="bravada_child_slider_next" onclick="plusSlides(1)">&#10095;</a>
-
-                <div class="slideshow-buttons">
-                    <!-- Boutons Pause et Lecture -->
-                    <a id="bravada-child-btn-pause" class="bravada-child-btn" onclick="stopSlideshow()">
-                        <i class="fa-regular fa-circle-pause"></i>
-                    </a>
-
-                    <a id="bravada-child-btn-play" class="bravada-child-btn" onclick="startSlideshow()">
-                        <i class="fa-regular fa-circle-play"></i>
-                    </a>
-                </div>
-
-                <!-- Caption text -->
-                <div class="bravada_child_slider_caption-container">
-                    <p id="bravada_child_slider_caption"></p>
-                </div>
-
-                <!-- Thumbnail image controls
-                <div class="bravada_child_slider_thumbnail">
-                     <?php /*
-                    foreach ($images as $key => $image) {
-                        $currentImage = $key + 1;
-                        get_children_taxonomy_thumbnails_images_card_for_slideshow($image, $currentImage);
-                    }
-                   */ ?>
-                </div>-->
-
             </div>
+
+            <div class="slideshow-buttons">
+                <!-- Boutons Pause et Lecture -->
+                <a id="bravada-child-btn-pause" class="bravada-child-btn" onclick="stopSlideshow()">
+                    <i class="fa-regular fa-circle-pause"></i>
+                </a>
+
+                <a id="bravada-child-btn-play" class="bravada-child-btn" onclick="startSlideshow()">
+                    <i class="fa-regular fa-circle-play"></i>
+                </a>
+            </div>
+
+            <!-- Next/previous controls -->
+            <a class="bravada_child_slider_prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="bravada_child_slider_next" onclick="plusSlides(1)">&#10095;</a>
+
+            <!-- Caption text -->
+            <div class="bravada_child_slider_caption-container">
+                <p id="bravada_child_slider_caption"></p>
+            </div>
+
+            <!-- Thumbnail image controls
+            <div class="bravada_child_slider_thumbnail">
+                 <?php /*
+                foreach ($images as $key => $image) {
+                    $currentImage = $key + 1;
+                    get_children_taxonomy_thumbnails_images_card_for_slideshow($image, $currentImage);
+                }
+               */ ?>
+            </div>-->
         </div>
 
         <script>
@@ -169,13 +168,14 @@ if (!function_exists('bravada_child_display_children_taxonomy_grid_images_partia
                 if (n > slides.length) {slideIndex = 1}
                 if (n < 1) {slideIndex = slides.length}
                 for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
+                    slides[i].className = slides[i].className.replace(" active", "");
+                    slides[i].style.display = "block";
                 }
                 /* Hide the thumbnail part
                 for (i = 0; i < dots.length; i++) {
                     dots[i].className = dots[i].className.replace(" bravada_child_slider_active", "");
                 }*/
-                slides[slideIndex-1].style.display = "block";
+                slides[slideIndex-1].className += " active";
                 /*dots[slideIndex-1].className += " bravada_child_slider_active";*/
                 /*captionText.innerHTML = dots[slideIndex-1].alt;*/
             }
