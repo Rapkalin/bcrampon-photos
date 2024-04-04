@@ -1,8 +1,4 @@
 <?php
-/** Enable W3 Total Cache */
-define('WP_CACHE', true); // Added by W3 Total Cache
-define( 'WP_DEBUG', true );
-define( 'WP_DEBUG_LOG', true );
 
 /**
  * The base configuration for WordPress
@@ -32,6 +28,14 @@ if (file_exists(DIR_VENDOR . 'autoload.php')) {
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $env = $dotenv->load();
+
+/** Enable W3 Total Cache */
+define('WP_CACHE', true); // Added by W3 Total Cache
+
+if ($env['WP_ENV'] !== 'production') {
+    define( 'WP_DEBUG', true );
+    define( 'WP_DEBUG_LOG', true );
+}
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
