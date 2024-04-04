@@ -232,6 +232,33 @@ img.bravada_child_slider_hover-shadow {
     overflow: hidden;
 }
 
+
+.slideshow-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.bravada-child-btn {
+    color: white;
+    font-size: xx-large;
+}
+
+#bravada-child-btn-play:hover,
+#bravada-child-btn-pause:hover,
+.bravada-child-btn-on
+{
+    color: gold;
+}
+
+#bravada-child-btn-play {
+    margin-left: 5px;
+}
+
+#bravada-child-btn-pause {
+    margin-right: 5px;
+}
+
 @media (max-width:640px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
     #bravada-child-taxonomy-title {
         font-size: large;

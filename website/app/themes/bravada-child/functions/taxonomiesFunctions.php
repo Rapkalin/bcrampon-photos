@@ -62,6 +62,8 @@ if (!function_exists('bravada_child_display_children_taxonomy_grid_images_partia
 
     /**
      * Return the grid images of a taxonomy
+     * And handle the slideshow config
+     *
      * @param array $images
      * @return void
      */
@@ -101,6 +103,17 @@ if (!function_exists('bravada_child_display_children_taxonomy_grid_images_partia
                 <a class="bravada_child_slider_prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="bravada_child_slider_next" onclick="plusSlides(1)">&#10095;</a>
 
+                <div class="slideshow-buttons">
+                    <!-- Boutons Pause et Lecture -->
+                    <a id="bravada-child-btn-pause" class="bravada-child-btn" onclick="stopSlideshow()">
+                        <i class="fa-regular fa-circle-pause"></i>
+                    </a>
+
+                    <a id="bravada-child-btn-play" class="bravada-child-btn" onclick="startSlideshow()">
+                        <i class="fa-regular fa-circle-play"></i>
+                    </a>
+                </div>
+
                 <!-- Caption text -->
                 <div class="bravada_child_slider_caption-container">
                     <p id="bravada_child_slider_caption"></p>
@@ -121,16 +134,21 @@ if (!function_exists('bravada_child_display_children_taxonomy_grid_images_partia
 
         <script>
             var slideIndex = 1;
+            var pauseButton = document.getElementById("bravada-child-btn-pause");
+            var playButton = document.getElementById("bravada-child-btn-play");
+
             showSlides(slideIndex);
 
             // Open the Modal
             function openModal() {
                 document.getElementById("bravada_child_slider_myModal").style.display = "block";
+                startSlideshow(); // Démarrer le slideshow à l'ouverture
             }
 
             // Close the Modal
             function closeModal() {
                 document.getElementById("bravada_child_slider_myModal").style.display = "none";
+                stopSlideshow(); // Arrêter le slideshow à la fermeture
             }
 
             // Next/previous controls
@@ -153,7 +171,8 @@ if (!function_exists('bravada_child_display_children_taxonomy_grid_images_partia
                 for (i = 0; i < slides.length; i++) {
                     slides[i].style.display = "none";
                 }
-                /* for (i = 0; i < dots.length; i++) {
+                /* Hide the thumbnail part
+                for (i = 0; i < dots.length; i++) {
                     dots[i].className = dots[i].className.replace(" bravada_child_slider_active", "");
                 }*/
                 slides[slideIndex-1].style.display = "block";
@@ -161,10 +180,38 @@ if (!function_exists('bravada_child_display_children_taxonomy_grid_images_partia
                 /*captionText.innerHTML = dots[slideIndex-1].alt;*/
             }
 
-            // Appeler la fonction plusSlides() toutes les 3 secondes
-            setInterval(function() {
-                plusSlides(1); // Défiler vers le slide suivant
-            }, 3000); // 3000 millisecondes = 3 secondes
+            function startSlideshow() {
+                // call function plusSlides() every 4 seconds
+                playButton.classList.add("bravada-child-btn-on");
+                pauseButton.classList.remove("bravada-child-btn-on");
+
+                slideInterval = setInterval(function() {
+                    plusSlides(1);
+                }, 4000 // 4 seconds
+                );
+
+                // disable buttons for 1 second
+                setTimeout(() => {
+                        pauseButton.disabled = true;
+                        playButton.disabled = true;
+                    }, 1000 // 1 seconds
+                )
+
+            }
+
+            function stopSlideshow() {
+                pauseButton.classList.add("bravada-child-btn-on");
+                playButton.classList.remove("bravada-child-btn-on");
+
+                // disable buttons for 1 second
+                setTimeout(() => {
+                    pauseButton.disabled = true;
+                    playButton.disabled = true;
+                    }, 1000 // 1 second
+                )
+
+                clearInterval(slideInterval);
+            }
         </script>
 
         <?php

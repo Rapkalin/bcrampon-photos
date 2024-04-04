@@ -15,11 +15,14 @@
 <?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
 <link rel="pingback" href="<?php echo esc_url( get_bloginfo( 'pingback_url' ) ); ?>">
 <?php endif; ?>
+<script src="https://kit.fontawesome.com/a8ed703567.js" crossorigin="anonymous"></script>
+
 <?php
-	cryout_header_hook();
-	wp_head();
+    cryout_header_hook();
+    wp_head();
 ?>
 </head>
+
 <body
     <?php body_class(); cryout_schema_microdata( 'body' );?>>
 	<?php do_action( 'wp_body_open' ); ?>
