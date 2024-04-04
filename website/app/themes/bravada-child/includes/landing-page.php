@@ -2,7 +2,6 @@
 /*$region_categories = bravada_child_get_region_travel_categories();
 $country_categories = bravada_child_get_all_country_travel_categories($region_categories);
 $sorted_cities = bravada_child_get_all_sorted_cities($country_categories);*/
-
 /**
  * Landing page functions
  * Used in front-page.php
@@ -15,6 +14,7 @@ $sorted_cities = bravada_child_get_all_sorted_cities($country_categories);*/
 */
 if ( ! function_exists('bravada_lpslider' ) ):
 function bravada_lpslider() {
+
 	$options = cryout_get_option( array( 'theme_lpslider', 'theme_lpsliderimage', 'theme_lpslidertitle', 'theme_lpslidertext', 'theme_lpslidershortcode', 'theme_lpsliderserious', 'theme_lpslidercta1text', 'theme_lpslidercta1link', 'theme_lpslidercta2text', 'theme_lpslidercta2link'  ) );
 ?>
 <section class="lp-slider">
@@ -95,7 +95,7 @@ if ( empty( $image ) && empty( $title ) && empty( $content ) && empty( $lpslider
 				</div>
 			</div>
 		</div>
-		<?php echo bravada_meta_arrow(); ?>
+		<?php echo bravada_child_meta_arrow(); ?>
 	</div><!-- .lp-staticslider -->
 
 <?php

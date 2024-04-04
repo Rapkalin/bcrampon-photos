@@ -10,8 +10,6 @@
  * @package Bravada
  */
 get_header();
-
-die('stop');
 ?>
 <div id="container" class="<?php bravada_get_layout_class(); ?>">
 	<main id="main" class="main">

@@ -28,7 +28,13 @@ $pluralOrSingular = count($children_ids) > 1 ? "s" : "";
         ):
     ?>
 
-   <!-- <div id="bravada-child-taxonomy-cover" class="bravada-child-image-overlay-cover">
+
+    <?php
+    /*
+     * Possibily to add a cover on the page by uncommenting these lines
+     */
+    ?>
+    <!-- <div id="bravada-child-taxonomy-cover" class="bravada-child-image-overlay-cover">
         <span id="bravada-child-taxonomy-title" class="bravada-child-text-overlay-cover"><?php /*echo $current_taxonomy->name . "<br>" .  count($children_ids) . " categorie$pluralOrSingular" */?></span>
         <img
                 src="<?php /*echo z_taxonomy_image_url($current_taxonomy->term_id) */?>"
@@ -37,6 +43,8 @@ $pluralOrSingular = count($children_ids) > 1 ? "s" : "";
         >
 
     </div> -->
+
+    <?php cryout_breadcrumbs_hook();?>
     <div id="bravada-child-taxonomy-title"><?php echo $current_taxonomy->name . " - " .  count($children_ids) . " categorie$pluralOrSingular" ?></div>
     <div id="bravada-child-taxonomy-grid-content">
         <?php
