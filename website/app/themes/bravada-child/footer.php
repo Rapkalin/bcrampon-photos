@@ -9,14 +9,6 @@
  */
 
 ?>
-		<?php cryout_absolute_bottom_hook(); ?>
-
-		<aside id="colophon" <?php cryout_schema_microdata( 'sidebar' );?>>
-			<div id="colophon-inside" <?php bravada_footer_colophon_class();?>>
-				<?php get_sidebar( 'footer' );?>
-			</div>
-		</aside><!-- #colophon -->
-
 	</div><!-- #main -->
 
 	<footer id="footer" class="cryout" <?php cryout_schema_microdata( 'footer' );?>>
@@ -24,7 +16,7 @@
 		<div id="footer-top">
 			<div class="footer-inside">
 				<?php cryout_master_footer_hook(); ?>
-			</div><!-- #footer-inside -->
+            </div><!-- #footer-inside -->
 		</div><!-- #footer-top -->
 	</footer>
 </div><!-- site-wrapper -->

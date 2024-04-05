@@ -39,6 +39,7 @@
     "wpackagist-plugin/wpforms-lite":"^1.8",
     "wpackagist-plugin/webp-uploads":"^1.0",
     "wpackagist-plugin/dominant-color-images":"^1.0",
+    "wpackagist-plugin/disable-right-click-images":"1.0.1",
 
     "ext-dom": "*",
     "ext-libxml": "*",

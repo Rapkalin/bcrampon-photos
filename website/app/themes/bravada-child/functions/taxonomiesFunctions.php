@@ -52,6 +52,7 @@ if (!function_exists('get_taxonomy_image_card')) {
                         class="bravada-child-taxonomy-image"
                         src="<?php echo z_taxonomy_image_url($child_taxonomy->term_id, $size) ?>"
                         alt="<?php echo 'Bernard Crampon Photography - ' . $child_taxonomy->name ?>"
+                        oncontextmenu="return copyrightMessage(event);"
                     >
                 </div>
             </a>
@@ -239,6 +240,7 @@ if (!function_exists('get_children_taxonomy_images_card')) {
                     src="<?php echo $image_url ?>"
                     alt="<?php echo 'Bernard Crampon Photography - ' . $image->post_title ?>"
                     onclick="openModal();currentSlide(<?php echo $currentImage ?>)"
+                    oncontextmenu="return copyrightMessage(event);"
                 >
             </div>
         <?php
@@ -263,9 +265,11 @@ if (!function_exists('get_children_taxonomy_slides_images_card_for_slideshow')) 
                 <img class="bravada_child_image_slider"
                      src="<?php echo $image_url ?>"
                      alt="<?php echo 'Bernard Crampon Photography - ' . $image->post_title ?>"
+                     oncontextmenu="return copyrightMessage(event);"
                 >
             </div>
         <?php
+
     }
 }
 
@@ -286,6 +290,7 @@ if (!function_exists('get_children_taxonomy_thumbnails_images_card_for_slideshow
                 <img class="bravada_child_slider_demo"
                      src="<?php echo $image_url ?>"
                      onclick="currentSlide(<?php echo $currentImage ?>)" alt="<?php echo $image->post_title ?>"
+                     oncontextmenu="return copyrightMessage(event);"
                 >
             </div>
         <?php

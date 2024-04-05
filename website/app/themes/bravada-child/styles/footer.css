@@ -1,0 +1,24 @@
+.widget-container ul li {
+    margin: unset;
+}
+
+.widget-container {
+    margin: unset;
+}
+
+.widget-container ul li:not(:last-child) {
+    padding-bottom: unset;
+}
+
+#site-copyright,
+.footermenu
+{
+    margin: 0.5em 1.5em;
+}
+
+.footer-inside {
+    flex-flow: unset;
+    padding: unset;
+    display: flex;
+    justify-content: center;
+}

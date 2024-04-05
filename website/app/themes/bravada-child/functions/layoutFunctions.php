@@ -112,7 +112,7 @@ if (!function_exists('bravada_child_copyright')) {
     function bravada_child_copyright() {
 
         echo '<div id="site-copyright">' . do_shortcode( cryout_get_option( 'theme_copyright' ) ). '</div>';
-        echo '<div style="display:block; margin: 0.5em auto;">' . __( "Site by", "bravada" ) .
+        echo '<div style="display:block; margin: 0.5em 1.5em;">' . __( "Site by", "bravada" ) .
             '<a target="_blank" href="' . "https://github.com/Rapkalin/" . '" title="';
         echo 'Site by Freelance developer Rapkalin"> ' . 'Rapkalin</a> based on the Bravada Theme</div>';
         if ( has_nav_menu( 'footer' ) )
@@ -122,7 +122,23 @@ if (!function_exists('bravada_child_copyright')) {
                 'after'				=> '<span class="sep">/</span>',
                 'depth'				=> 1
             ) );
-        ?> </div> <?php
+        dynamic_sidebar('footer-widget-area');
+
+        ?> </div>
+
+        <script>
+            function copyrightMessage(event) {
+                // Prevent default right-click behavior
+                event.preventDefault();
+
+                // Display an alert message
+                alert('Copyright protected. This image cannot be downloaded.');
+
+                // Return false to avoid default behavior
+                return false;
+            }
+        </script>
+        <?php
 
     }
 }
