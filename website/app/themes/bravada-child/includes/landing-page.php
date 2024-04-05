@@ -82,6 +82,7 @@ if ( empty( $image ) && empty( $title ) && empty( $content ) && empty( $lpslider
                 background-repeat: no-repeat;
                 background-size: cover;
                 "
+                oncontextmenu="return copyrightMessage(event);"
             >
 		<?php } ?>
 		<div class="staticslider-caption">
