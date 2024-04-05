@@ -51,6 +51,7 @@ if (!function_exists('get_taxonomy_image_card')) {
                     <img
                         class="bravada-child-taxonomy-image"
                         src="<?php echo z_taxonomy_image_url($child_taxonomy->term_id, $size) ?>"
+                        alt="<?php echo 'Bernard Crampon Photography - ' . $child_taxonomy->name ?>"
                     >
                 </div>
             </a>
@@ -58,6 +59,9 @@ if (!function_exists('get_taxonomy_image_card')) {
     }
 }
 
+/**
+ * Slideshow handling
+ */
 if (!function_exists('bravada_child_display_children_taxonomy_grid_images_partial')) {
 
     /**
@@ -233,6 +237,7 @@ if (!function_exists('get_children_taxonomy_images_card')) {
                 <img
                     class="bravada-child-children-taxonomy-image"
                     src="<?php echo $image_url ?>"
+                    alt="<?php echo 'Bernard Crampon Photography - ' . $image->post_title ?>"
                     onclick="openModal();currentSlide(<?php echo $currentImage ?>)"
                 >
             </div>
@@ -252,12 +257,12 @@ if (!function_exists('get_children_taxonomy_slides_images_card_for_slideshow')) 
     function get_children_taxonomy_slides_images_card_for_slideshow($image, int $currentImage, int $totalSlides) {
         // images slider
         $image_url = get_bravada_child_image_url($image);
-
         ?>
             <div class="bravada_child_slider_mySlides">
                 <div class="bravada_child_slider_numbertext"><?php echo $currentImage . " / " . $totalSlides ?></div>
                 <img class="bravada_child_image_slider"
-                     src="<?php echo $image_url ?>" style="width:100%"
+                     src="<?php echo $image_url ?>"
+                     alt="<?php echo 'Bernard Crampon Photography - ' . $image->post_title ?>"
                 >
             </div>
         <?php
