@@ -18,6 +18,19 @@
 				<?php cryout_master_footer_hook(); ?>
             </div><!-- #footer-inside -->
 		</div><!-- #footer-top -->
+
+        <script defer >
+            function copyrightMessage(event) {
+                // Prevent default right-click behavior
+                event.preventDefault();
+
+                // Display an alert message
+                alert('Copyright protected. This image cannot be downloaded.');
+
+                // Return false to avoid default behavior
+                return false;
+            }
+        </script>
 	</footer>
 </div><!-- site-wrapper -->
 	<?php wp_footer(); ?>

@@ -53,6 +53,7 @@ if (!function_exists('get_taxonomy_image_card')) {
                         src="<?php echo z_taxonomy_image_url($child_taxonomy->term_id, $size) ?>"
                         alt="<?php echo 'Bernard Crampon Photography - ' . $child_taxonomy->name ?>"
                         oncontextmenu="return copyrightMessage(event);"
+                        tabindex="1"
                     >
                 </div>
             </a>
@@ -117,8 +118,8 @@ if (!function_exists('bravada_child_display_children_taxonomy_grid_images_partia
             </div>
 
             <!-- Next/previous controls -->
-            <a class="bravada_child_slider_prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="bravada_child_slider_next" onclick="plusSlides(1)">&#10095;</a>
+            <div class="bravada_child_slider_prev" onclick="plusSlides(-1)">&#10094;</div>
+            <div class="bravada_child_slider_next" onclick="plusSlides(1)">&#10095;</div>
 
             <!-- Caption text -->
             <div class="bravada_child_slider_caption-container">
@@ -241,6 +242,7 @@ if (!function_exists('get_children_taxonomy_images_card')) {
                     alt="<?php echo 'Bernard Crampon Photography - ' . $image->post_title ?>"
                     onclick="openModal();currentSlide(<?php echo $currentImage ?>)"
                     oncontextmenu="return copyrightMessage(event);"
+                    tabindex="1"
                 >
             </div>
         <?php
@@ -266,6 +268,7 @@ if (!function_exists('get_children_taxonomy_slides_images_card_for_slideshow')) 
                      src="<?php echo $image_url ?>"
                      alt="<?php echo 'Bernard Crampon Photography - ' . $image->post_title ?>"
                      oncontextmenu="return copyrightMessage(event);"
+                     tabindex="1"
                 >
             </div>
         <?php
@@ -291,6 +294,7 @@ if (!function_exists('get_children_taxonomy_thumbnails_images_card_for_slideshow
                      src="<?php echo $image_url ?>"
                      onclick="currentSlide(<?php echo $currentImage ?>)" alt="<?php echo $image->post_title ?>"
                      oncontextmenu="return copyrightMessage(event);"
+                     tabindex="1"
                 >
             </div>
         <?php

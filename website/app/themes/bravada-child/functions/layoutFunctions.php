@@ -7,6 +7,7 @@ add_action( 'cryout_headerimage_hook', 'bravada_child_header_image_hook' );
 add_action( 'cryout_master_footer_hook', 'bravada_child_copyright_hook', 9 );
 add_action( 'cryout_master_footerbottom_hook', 'bravada_child_footerbottom_hook', 9 );
 add_action( 'init', 'bravada_child_footerbottom_hook', 9 );
+add_action( 'wp_body_open', 'bravada_child_cryout_skiplink_hook', 1 );
 
 if (!function_exists('bravada_child_copyright_hook')) {
     function bravada_child_copyright_hook()
@@ -35,13 +36,10 @@ if (!function_exists('bravada_child_footerbottom_hook')) {
 if (!function_exists('bravada_child_header_image_hook')) {
     function bravada_child_header_image_hook()
     {
-        die('in');
         if (function_exists('bravada_header_image')) {
             remove_action ( 'cryout_headerimage_hook', 'bravada_header_image', 99 );
             add_action ( 'cryout_headerimage_hook', 'bravada_child_header_image', 99 );
         }
-
-        die('in 2');
 
         if (function_exists('bravada_meta_arrow')) {
             remove_action('cryout_headerimage_hook', 'bravada_meta_arrow', 1);
@@ -125,19 +123,6 @@ if (!function_exists('bravada_child_copyright')) {
         dynamic_sidebar('footer-widget-area');
 
         ?> </div>
-
-        <script>
-            function copyrightMessage(event) {
-                // Prevent default right-click behavior
-                event.preventDefault();
-
-                // Display an alert message
-                alert('Copyright protected. This image cannot be downloaded.');
-
-                // Return false to avoid default behavior
-                return false;
-            }
-        </script>
         <?php
 
     }
@@ -150,3 +135,23 @@ if (!function_exists('bravada_child_get_image_sizes_list')) {
         return $_wp_additional_image_sizes;
     }
 }
+
+if (!function_exists('bravada_child_cryout_skiplink')) {
+    function bravada_child_cryout_skiplink_hook () {
+        if (function_exists('cryout_skiplink')) {
+            remove_action ( 'wp_body_open', 'cryout_skiplink', 2 );
+            add_action ( 'wp_body_open', 'bravada_child_cryout_skiplink', 2 );
+        }
+    }
+}
+
+if (!function_exists('bravada_child_cryout_skiplink')) {
+    function bravada_child_cryout_skiplink () {
+        $achorTarget = cryout_is_landingpage() ? "#footer-top" : (is_category() ? "#content" : "#main");
+        ?>
+            <a id="skip" class="skip-link screen-reader-text test" href="<?php echo $achorTarget ?>" title="<?php esc_attr_e( 'Skip to content', 'cryout' ); ?>"> <?php _e( 'Skip to content', 'cryout' ); ?> </a>
+        <?php
+    }
+}
+
+// cryout_skiplink() located in cryout/prototypes.php

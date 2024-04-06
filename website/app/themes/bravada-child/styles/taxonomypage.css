@@ -155,6 +155,7 @@
 .bravada_child_slider_prev:hover,
 .bravada_child_slider_next:hover {
     background-color: rgba(17, 20, 24, 0.9);
+    color: gold;
 }
 
 a:hover {
@@ -164,7 +165,8 @@ a:hover {
 /* Number text (1/3 etc) */
 .bravada_child_slider_numbertext {
     color: #f2f2f2;
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: 800;
     padding: 8px 12px;
     position: absolute;
     top: 0;
@@ -247,10 +249,11 @@ img.bravada_child_slider_hover-shadow {
 
 .slideshow-buttons {
     display: flex;
-    justify-content: center;
     margin-top: 20px;
-    position: relative;
-    top: 90vh;
+    position: absolute;
+    bottom: 4Vh;
+    justify-content: center;
+    width: 100%;
 }
 
 .bravada-child-btn {
