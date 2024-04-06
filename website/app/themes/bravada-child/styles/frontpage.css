@@ -76,3 +76,8 @@
 .lp-staticslider .staticslider-caption {
     padding-top: 180px;
 }
+
+.meta-arrow {
+    display: flex;
+    justify-content: center;
+}
