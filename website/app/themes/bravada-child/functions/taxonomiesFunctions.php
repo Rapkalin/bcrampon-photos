@@ -85,7 +85,7 @@ if (!function_exists('bravada_child_display_children_taxonomy_grid_images_partia
             $images = $images[0];
         }
 
-        ?><div class="bravada-child-taxonomypage-taxonomy-3-images"><?php
+        ?><div class="bravada-child-taxonomypage-taxonomy-3-images bravada-child-taxonomypage-taxonomy-images"><?php
         foreach ($images as $key => $image) {
             $currentImage = $key + 1;
             get_children_taxonomy_images_card($image, $currentImage);

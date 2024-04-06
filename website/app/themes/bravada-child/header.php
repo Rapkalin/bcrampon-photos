@@ -13,8 +13,9 @@
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
-<link rel="pingback" href="<?php echo esc_url( get_bloginfo( 'pingback_url' ) ); ?>">
+    <link rel="pingback" href="<?php echo esc_url( get_bloginfo( 'pingback_url' ) ); ?>">
 <?php endif; ?>
+<link href="https://fonts.cdnfonts.com/css/muli" rel="stylesheet">
 <script src="https://kit.fontawesome.com/a8ed703567.js" crossorigin="anonymous"></script>
 <meta name="description" content="Découvrez le monde à travers l'objectif de Bernard Crampon, photographe passionné. Immortalisant moments uniques et paysages époustouflants, son blog vous emmène dans un voyage visuel sans précédent.">
 

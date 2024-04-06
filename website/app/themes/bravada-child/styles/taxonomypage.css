@@ -22,6 +22,10 @@
     row-gap: 3vh;
 }
 
+.bravada-child-taxonomypage-taxonomy-images {
+    margin-top: 3vh;
+}
+
 .bravada-child-taxonomy-grid-link {
     margin: 2vh 1vh 0 1vh;
 }
@@ -223,7 +227,7 @@ img.bravada_child_slider_hover-shadow {
     text-align: center;
     font-weight: 700;
     background-color: #18202b;
-    margin: 5vh 10vw;
+    margin: 3vh 10vw;
 }
 
 .bravada-child-text-overlay-cover {

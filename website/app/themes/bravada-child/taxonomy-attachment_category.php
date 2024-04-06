@@ -44,8 +44,8 @@ $pluralOrSingular = count($children_ids) > 1 ? "s" : "";
 
     </div> -->
 
-    <?php cryout_breadcrumbs_hook();?>
     <div id="bravada-child-taxonomy-title"><?php echo $current_taxonomy->name . " - " .  count($children_ids) . " categorie$pluralOrSingular" ?></div>
+    <div class="bravada-child-breadcrumb">You are here <span class="separator bravada-child-breadcrumb-separator"></span> <?php echo do_shortcode('[breadcrumb]');?></div>
     <div id="bravada-child-taxonomy-grid-content">
         <?php
             /*
@@ -83,6 +83,7 @@ $pluralOrSingular = count($children_ids) > 1 ? "s" : "";
 
     ?>
         <div id="bravada-child-taxonomy-title"><?php echo $current_taxonomy->name . " - " .  $current_taxonomy->count . " image$pluralOrSingular" ?></div>
+        <div class="bravada-child-breadcrumb">You are here <span class="separator bravada-child-breadcrumb-separator"></span> <?php echo do_shortcode('[breadcrumb]');?></div>
         <div id="bravada-child-taxonomy-grid-content">
             <?php do_action('display_children_taxonomy_grid_images_partial', array_reverse($images)); ?>
         </div>

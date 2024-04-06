@@ -1,0 +1,30 @@
+.breadcrumb-container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.separator:after {
+    content: '»';
+}
+
+.breadcrumb-container a:hover {
+    color: gold !important;
+}
+
+.breadcrumb-container ol li:last-child a {
+    color: gold !important;
+    border-bottom: solid;
+}
+
+.bravada-child-breadcrumb {
+    display: flex;
+    margin-left: 11vw;
+    font-family: 'Muli';
+    font-size: 13px;
+    align-items: center;
+}
+
+
+.bravada-child-breadcrumb-separator {
+    margin-left: 20px;
+}
