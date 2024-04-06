@@ -24,7 +24,23 @@
     align-items: center;
 }
 
-
 .bravada-child-breadcrumb-separator {
     margin-left: 20px;
+    margin-right: 20px;
+}
+
+.bravada-child-breadcrumb_text {
+    display: flex;
+    text-wrap: nowrap;
+}
+
+@media (max-width:640px) { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+    .bravada-child-breadcrumb {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .bravada-child-breadcrumb_text {
+        margin-left: 15px;
+    }
 }

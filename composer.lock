@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2b8f2793ef158f1c3cd211e86820fb79",
+    "content-hash": "1fe7eb4612ee6932c43128d81ae62fdd",
     "packages": [
         {
             "name": "composer/installers",
@@ -702,6 +702,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/media-library-assistant/"
+        },
+        {
+            "name": "wpackagist-plugin/mobile-menu",
+            "version": "2.8.4.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/mobile-menu/",
+                "reference": "tags/2.8.4.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/mobile-menu.2.8.4.2.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/mobile-menu/"
         },
         {
             "name": "wpackagist-plugin/performance-lab",

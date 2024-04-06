@@ -8,6 +8,7 @@ add_action( 'cryout_master_footer_hook', 'bravada_child_copyright_hook', 9 );
 add_action( 'cryout_master_footerbottom_hook', 'bravada_child_footerbottom_hook', 9 );
 add_action( 'init', 'bravada_child_footerbottom_hook', 9 );
 add_action( 'wp_body_open', 'bravada_child_cryout_skiplink_hook', 1 );
+add_action('bravada_child_breadcrumb', 'bravada_child_breadcrumb_display');
 
 if (!function_exists('bravada_child_copyright_hook')) {
     function bravada_child_copyright_hook()
@@ -105,6 +106,8 @@ if (! function_exists( 'bravada_child_header_image' )) {
 
 if (!function_exists('bravada_child_copyright')) {
     /**
+     * Update the parent copyright section
+     *
      * @return void
      */
     function bravada_child_copyright() {
@@ -129,6 +132,11 @@ if (!function_exists('bravada_child_copyright')) {
 }
 
 if (!function_exists('bravada_child_get_image_sizes_list')) {
+    /**
+     * Return an array of list of image sizes
+     *
+     * @return mixed
+     */
     function bravada_child_get_image_sizes_list ()
     {
         global $_wp_additional_image_sizes;
@@ -137,6 +145,9 @@ if (!function_exists('bravada_child_get_image_sizes_list')) {
 }
 
 if (!function_exists('bravada_child_cryout_skiplink')) {
+    /**
+     * @return void
+     */
     function bravada_child_cryout_skiplink_hook () {
         if (function_exists('cryout_skiplink')) {
             remove_action ( 'wp_body_open', 'cryout_skiplink', 2 );
@@ -145,7 +156,11 @@ if (!function_exists('bravada_child_cryout_skiplink')) {
     }
 }
 
+// cryout_skiplink() located in cryout/prototypes.php
 if (!function_exists('bravada_child_cryout_skiplink')) {
+    /**
+     * @return void
+     */
     function bravada_child_cryout_skiplink () {
         $achorTarget = cryout_is_landingpage() ? "#footer-top" : (is_category() ? "#content" : "#main");
         ?>
@@ -154,4 +169,22 @@ if (!function_exists('bravada_child_cryout_skiplink')) {
     }
 }
 
-// cryout_skiplink() located in cryout/prototypes.php
+if (!function_exists('bravada_child_breadcrumb_display')) {
+    /**
+     * Display the breadcrumb
+     *
+     * @return void
+     */
+    function bravada_child_breadcrumb_display () {
+        ?>
+            <div class="bravada-child-breadcrumb">
+                <div class="bravada-child-breadcrumb_text">
+                    <span class="text-separator">You are here</span>
+                    <span class="separator bravada-child-breadcrumb-separator"></span>
+                </div>
+                <?php echo do_shortcode('[breadcrumb]');?>
+            </div>
+        <?php
+    }
+}
+

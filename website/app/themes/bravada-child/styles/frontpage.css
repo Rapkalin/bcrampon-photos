@@ -81,3 +81,21 @@
     display: flex;
     justify-content: center;
 }
+
+@media (max-width:640px) { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+    .lp-staticslider .lp-staticslider-image {
+        left: unset;
+        position: unset;
+        -webkit-transform: unset;
+        transform: unset;
+    }
+}
+
+@media (min-width:961px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+
+@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */
+}
+
+@media (min-width:1250px) { /* big landscape tablets, laptops, and desktops */
+}

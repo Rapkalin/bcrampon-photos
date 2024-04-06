@@ -49,6 +49,7 @@ website/app/plugins/webp-uploads
 website/app/plugins/wpforms-lite
 website/app/plugins/dominant-color-images
 website/app/plugins/breadcrumb
+website/app/plugins/mobile-menu
 
 # Global gitignore setup
 /composer.lock

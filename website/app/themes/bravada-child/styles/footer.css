@@ -22,3 +22,17 @@
     display: flex;
     justify-content: center;
 }
+
+@media (max-width:640px) { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+    .footer-inside {
+        flex-direction: column;
+    }
+
+    .widget-container {
+        margin-bottom: 3vh !important;
+    }
+
+    #footer {
+        padding-top: 0.5em;
+    }
+}
