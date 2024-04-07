@@ -42,8 +42,6 @@
     object-fit: cover;
     object-position: top;
     overflow: hidden;
-    user-select: none;
-    pointer-events: none;
 }
 
 .bravada_child_slider_row > .bravada_child_slider_column {
@@ -193,8 +191,6 @@ img.bravada_child_slider_demo {
     height: 100%;
     object-fit: cover;
     object-position: top;
-    user-select: none;
-    pointer-events: none;
 }
 
 .bravada_child_slider_active,
@@ -221,8 +217,6 @@ img.bravada_child_slider_hover-shadow {
     height: 100%;
     border: 0;
     object-fit: contain;
-    user-select: none;
-    pointer-events: none;
 }
 
 #bravada-child-taxonomy-title {
