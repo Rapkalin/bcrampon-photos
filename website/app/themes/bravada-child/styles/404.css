@@ -1,0 +1,21 @@
+.entry-title {
+    color: white;
+}
+
+.bravada-child-404-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+#bravada-child-404-text {
+    font-size: 25vh;
+    font-style: italic;
+    font-family: monospace;
+    color: #526f96;
+}
+
+#bravada-child-404-link {
+    border-bottom: solid;
+}
