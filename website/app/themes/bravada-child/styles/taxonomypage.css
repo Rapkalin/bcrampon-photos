@@ -42,6 +42,8 @@
     object-fit: cover;
     object-position: top;
     overflow: hidden;
+    user-select: none;
+    pointer-events: none;
 }
 
 .bravada_child_slider_row > .bravada_child_slider_column {
@@ -191,6 +193,8 @@ img.bravada_child_slider_demo {
     height: 100%;
     object-fit: cover;
     object-position: top;
+    user-select: none;
+    pointer-events: none;
 }
 
 .bravada_child_slider_active,
@@ -217,17 +221,19 @@ img.bravada_child_slider_hover-shadow {
     height: 100%;
     border: 0;
     object-fit: contain;
+    user-select: none;
+    pointer-events: none;
 }
 
 #bravada-child-taxonomy-title {
     display: flex;
     justify-content: center;
     color: #526f96; /* old - #334760; */
-    font-size: xx-large;
+    font-size: x-large;
     text-align: center;
     font-weight: 700;
     background-color: #18202b;
-    margin: 3vh 10vw;
+    margin: 1vh 10vw;
 }
 
 .bravada-child-text-overlay-cover {
