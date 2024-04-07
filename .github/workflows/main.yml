@@ -14,7 +14,7 @@ jobs:
         php: [ 7.0 ]
 
     steps:
-      - name: checkout code
+      - name: checkout bcrampon prod
         uses: actions/checkout@v3
 
       - name: Restore the Composer cache directory
@@ -55,9 +55,9 @@ jobs:
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_KEY }}
           port: 22
-          script: "[ ! -d ~/bcrampon/prod/website ] || rm -rf ~/bcrampon/prod/old_website ~/bcrampon/prod/website/vendor ~/bcrampon/prod/website/wordpress-core && mv -fu ~/bcrampon/prod/website ~/bcrampon/prod/old_website"
+          script: "[ ! -d ~/bcrampon/prod/website ] || rm -rf ~/bcrampon/prod/old_website ~/bcrampon/prod/website/vendor ~/bcrampon/prod/website/wordpress-core"
 
-      - name: checkout code
+      - name: checkout bcrampon prod
         uses: actions/checkout@v3
 
       - name: Download artifact
