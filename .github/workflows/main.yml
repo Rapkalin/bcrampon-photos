@@ -55,7 +55,7 @@ jobs:
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_KEY }}
           port: 22
-          script: "[ ! -d ~/bcrampon/prod/website ] || rm -rf ~/bcrampon/prod/old_website ~/bcrampon/prod/website/vendor ~/bcrampon/prod/website/wordpress-core"
+          script: "[ ! -d ~/prod/website ] || rm -rf ~/prod/old_website ~/prod/website/vendor ~/prod/website/wordpress-core"
 
       - name: checkout bcrampon prod
         uses: actions/checkout@v3
@@ -87,9 +87,9 @@ jobs:
           key: ${{ secrets.DEPLOY_KEY }}
           port: 22
           script: |
-            ln -nsrf ~/bcrampon/prod/shared/.env ~/bcrampon/prod/website/.env
-            ln -nsrf ~/bcrampon/prod/shared/uploads ~/bcrampon/prod/website/app/uploads
-            ln -nsrf ~/bcrampon/prod/shared/cache ~/bcrampon/prod/website/app/cache
-            ln -nsrf ~/bcrampon/prod/shared/w3tc-config ~/bcrampon/prod/website/app/w3tc-config
-            rm ~/bcrampon/prod/website/.htaccess
-            ln -nsrf ~/bcrampon/prod/shared/.htaccess ~/bcrampon/prod/website/.htaccess
+            ln -nsrf ~/prod/shared/.env ~/prod/website/.env
+            ln -nsrf ~/prod/shared/uploads ~/prod/website/app/uploads
+            ln -nsrf ~/prod/shared/cache ~/prod/website/app/cache
+            ln -nsrf ~/prod/shared/w3tc-config ~/prod/website/app/w3tc-config
+            rm ~/prod/website/.htaccess
+            ln -nsrf ~/prod/shared/.htaccess ~/prod/website/.htaccess
