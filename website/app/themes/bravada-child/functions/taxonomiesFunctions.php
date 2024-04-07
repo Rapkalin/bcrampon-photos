@@ -53,7 +53,7 @@ if (!function_exists('get_taxonomy_image_card')) {
                         src="<?php echo z_taxonomy_image_url($child_taxonomy->term_id, $size) ?>"
                         alt="<?php echo 'Bernard Crampon Photography - ' . $child_taxonomy->name ?>"
                         oncontextmenu="return copyrightMessage(event);"
-                        tabindex="1"
+                        tabindex="0"
                     >
                 </div>
             </a>
@@ -242,7 +242,7 @@ if (!function_exists('get_children_taxonomy_images_card')) {
                     alt="<?php echo 'Bernard Crampon Photography - ' . $image->post_title ?>"
                     onclick="openModal();currentSlide(<?php echo $currentImage ?>)"
                     oncontextmenu="return copyrightMessage(event);"
-                    tabindex="1"
+                    tabindex="0"
                 >
             </div>
         <?php
@@ -268,7 +268,7 @@ if (!function_exists('get_children_taxonomy_slides_images_card_for_slideshow')) 
                      src="<?php echo $image_url ?>"
                      alt="<?php echo 'Bernard Crampon Photography - ' . $image->post_title ?>"
                      oncontextmenu="return copyrightMessage(event);"
-                     tabindex="1"
+                     tabindex="0"
                 >
             </div>
         <?php
@@ -294,7 +294,7 @@ if (!function_exists('get_children_taxonomy_thumbnails_images_card_for_slideshow
                      src="<?php echo $image_url ?>"
                      onclick="currentSlide(<?php echo $currentImage ?>)" alt="<?php echo $image->post_title ?>"
                      oncontextmenu="return copyrightMessage(event);"
-                     tabindex="1"
+                     tabindex="0"
                 >
             </div>
         <?php
