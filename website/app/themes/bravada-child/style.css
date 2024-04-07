@@ -1,0 +1,30 @@
+/*
+Theme Name: Bravada child
+Template: bravada
+Text Domain: bcrampon
+*/
+.bravada-over-menu-position-unset {
+    position: unset !important;
+}
+
+body {
+    background-color: #15191e;
+}
+
+.footer-inside {
+    flex-flow: unset;
+    padding: unset;
+}
+
+#footer-top .footer-inside::before {
+    background: unset;
+}
+
+#colophon, #footer {
+    background-color: #15191e;
+}
+
+#bravada-child-fixed-bottom {
+    position: fixed;
+    bottom: 0px;
+}

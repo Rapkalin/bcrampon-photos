@@ -1,0 +1,38 @@
+.widget-container ul li {
+    margin: unset;
+}
+
+.widget-container {
+    margin: unset;
+}
+
+.widget-container ul li:not(:last-child) {
+    padding-bottom: unset;
+}
+
+#site-copyright,
+.footermenu
+{
+    margin: 0.5em 1.5em;
+}
+
+.footer-inside {
+    flex-flow: unset;
+    padding: unset;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width:640px) { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+    .footer-inside {
+        flex-direction: column;
+    }
+
+    .widget-container {
+        margin-bottom: 3vh !important;
+    }
+
+    #footer {
+        padding-top: 0.5em;
+    }
+}

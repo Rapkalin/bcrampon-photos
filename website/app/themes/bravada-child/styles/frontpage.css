@@ -1,0 +1,101 @@
+.site-header-inside {
+    font-size: large;
+    font-weight: 500;
+}
+
+.bravada-child-arrow-container {
+    display: flex;
+    color: white;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.bravada-child-arrow-text {
+    inline-size: max-content;
+}
+
+.bravada-child-frontpage-category-images {
+    display: grid;
+    align-items: stretch;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.image-overlay {
+    display: flex;
+    background-color: rgba(0,0,0,0.3);
+    height: 20vw;
+    width: 100%;
+    position: relative;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.image-overlay:hover {
+    background-color: rgba(0,0,0,0);
+    color: transparent;
+    transform: translateX(0);
+}
+
+.text-overlay {
+    font-size: x-large;
+    font-weight: bold;
+    font-family: 'Muli';
+    position: absolute;
+}
+
+#site-header-main,
+.menu-search-animated .searchform input[type="search"],
+#access .menu-search-animated .searchform,
+.site-header-bottom-fixed,
+.bravada-over-menu .site-header-bottom.header-fixed .site-header-bottom-fixed {
+    background-color: #141316;
+}
+
+#access > div > ul > li,
+#access > div > ul > li > a,
+.bravada-over-menu .header-fixed.site-header-bottom #access > div > ul > li:not([class*='current']),
+.bravada-over-menu .header-fixed.site-header-bottom #access > div > ul > li:not([class*='current']) > a {
+    color: white;
+}
+
+.hamburger span {
+    background-color: white;
+}
+
+#access > div > ul > li.current_page_item > a,
+#access > div > ul > li.current-menu-item > a,
+#access > div > ul > li.current_page_ancestor > a,
+#access > div > ul > li.current-menu-ancestor > a,
+.bravada-over-menu .header-fixed.site-header-bottom #access > div > ul > li > a {
+    color: white;
+}
+
+.lp-staticslider .staticslider-caption {
+    padding-top: 180px;
+}
+
+.meta-arrow {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width:640px) { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+    .lp-staticslider .lp-staticslider-image {
+        left: unset;
+        position: unset;
+        -webkit-transform: unset;
+        transform: unset;
+    }
+}
+
+@media (min-width:961px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+
+@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */
+}
+
+@media (min-width:1250px) { /* big landscape tablets, laptops, and desktops */
+}
