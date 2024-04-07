@@ -47,7 +47,6 @@
 	<div id="site-wrapper">
 
 	<header id="masthead" class="cryout" <?php cryout_schema_microdata( 'header' ) ?>>
-
 		<div
                 id="site-header-main"
                 class="<?php echo $extraMenuClass ?>"
@@ -78,7 +77,7 @@
 			</nav> <!-- #mobile-menu -->
 			<?php } ?>
 
-			<div class="site-header-bottom">
+			<div id="bravada-child-desktop-menu" class="site-header-bottom">
 
 				<div class="site-header-bottom-fixed">
 
