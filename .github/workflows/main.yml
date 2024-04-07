@@ -55,7 +55,7 @@ jobs:
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_KEY }}
           port: 22
-          script: "[ ! -d ~/prod/website ] || rm -rf ~/prod/old_website ~/prod/website/vendor ~/prod/website/wordpress-core"
+          script: "[ ! -d ~/prod/website ] || rm -rf ~/prod/old_website ~/prod/website/vendor ~/prod/website/wordpress-core && mv -fu ~/prod/website ~/prod/old_website"
 
       - name: checkout bcrampon prod
         uses: actions/checkout@v3
