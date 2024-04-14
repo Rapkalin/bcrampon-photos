@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: [ 7.0 ]
+        php: [ 8.1 ]
 
     steps:
       - name: checkout bcrampon prod
@@ -31,7 +31,7 @@ jobs:
         uses: php-actions/composer@v6
         with:
           version: 2.2
-          php_version: 7.0.33
+          php_version: 8.1.13
           dev: no
           args: --prefer-dist --no-interaction
 
