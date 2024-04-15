@@ -29,6 +29,8 @@ if (file_exists(DIR_VENDOR . 'autoload.php')) {
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $env = $dotenv->load();
 
+define('WP_MEMORY_LIMIT', '512M');
+
 /** Enable W3 Total Cache */
 define('WP_CACHE', true); // Added by W3 Total Cache
 

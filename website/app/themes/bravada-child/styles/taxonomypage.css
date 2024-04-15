@@ -80,7 +80,7 @@
     margin: auto;
     padding: 0;
     max-width: 85vw;
-    top: 80px;
+    top: 60px;
 }
 
 /* The Close Button */
@@ -318,6 +318,11 @@ img.bravada_child_slider_hover-shadow {
     .site-header-top, .site-header-bottom {
         display: none;
     }
+
+    .slideshow-buttons {
+        bottom: 5vh;
+    }
+
 }
 
 @media (min-width:641px)  { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */

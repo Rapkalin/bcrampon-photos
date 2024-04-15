@@ -31,6 +31,7 @@
     align-items: center;
     object-fit: cover;
     overflow: hidden;
+    text-align: center;
 }
 
 .image-overlay:hover {
@@ -80,6 +81,7 @@
 .meta-arrow {
     display: flex;
     justify-content: center;
+    bottom: 5vh;
 }
 
 @media (max-width:640px) { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
