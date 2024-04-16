@@ -27,7 +27,6 @@
 
     "wpackagist-theme/bravada":"^1.1",
 
-    "wpackagist-plugin/w3-total-cache":"^2.4",
     "wpackagist-plugin/hello-dolly":"^1.7",
     "wpackagist-plugin/akismet":"^5.2",
     "wpackagist-plugin/jetpack":"^12.6-a",

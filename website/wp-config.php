@@ -31,12 +31,10 @@ $env = $dotenv->load();
 
 define('WP_MEMORY_LIMIT', '512M');
 
-/** Enable W3 Total Cache */
-define('WP_CACHE', true); // Added by W3 Total Cache
-
 if ($env['WP_ENV'] !== 'production') {
     define( 'WP_DEBUG', true );
     define( 'WP_DEBUG_LOG', true );
+    define( 'WP_DEBUG_DISPLAY', true );
 }
 
 // ** Database settings - You can get this info from your web host ** //
