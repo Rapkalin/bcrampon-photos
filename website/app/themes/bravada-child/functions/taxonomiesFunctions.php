@@ -138,9 +138,9 @@ if (!function_exists('bravada_child_display_children_taxonomy_grid_images_partia
         </div>
 
         <script>
-            var slideIndex = 1;
-            var pauseButton = document.getElementById("bravada-child-btn-pause");
-            var playButton = document.getElementById("bravada-child-btn-play");
+            let slideIndex = 1;
+            let pauseButton = document.getElementById("bravada-child-btn-pause");
+            let playButton = document.getElementById("bravada-child-btn-play");
 
             showSlides(slideIndex);
 
@@ -167,10 +167,10 @@ if (!function_exists('bravada_child_display_children_taxonomy_grid_images_partia
             }
 
             function showSlides(n) {
-                var i;
-                var slides = document.getElementsByClassName("bravada_child_slider_mySlides");
+                let i;
+                let slides = document.getElementsByClassName("bravada_child_slider_mySlides");
                 // var dots = document.getElementsByClassName("bravada_child_slider_demo");
-                var captionText = document.getElementById("bravada_child_slider_caption");
+                let captionText = document.getElementById("bravada_child_slider_caption");
                 if (n > slides.length) {slideIndex = 1}
                 if (n < 1) {slideIndex = slides.length}
                 for (i = 0; i < slides.length; i++) {
@@ -260,7 +260,7 @@ if (!function_exists('get_children_taxonomy_slides_images_card_for_slideshow')) 
      */
     function get_children_taxonomy_slides_images_card_for_slideshow($image, int $currentImage, int $totalSlides) {
         // images slider
-        $image_url = get_bravada_child_image_url($image);
+        $image_url = get_bravada_child_image_url($image, '1536x1536');
         ?>
             <div class="bravada_child_slider_mySlides">
                 <div class="bravada_child_slider_numbertext"><?php echo $currentImage . " / " . $totalSlides ?></div>
