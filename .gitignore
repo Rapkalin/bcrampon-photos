@@ -51,6 +51,7 @@ website/app/plugins/dominant-color-images
 website/app/plugins/breadcrumb
 website/app/plugins/mobile-menu
 website/app/plugins/disable-right-click-images
+website/app/plugins/wp-fastest-cache
 
 # Global gitignore setup
 /composer.lock
