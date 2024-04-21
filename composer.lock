@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce87fa5570f787cfead47d77a7a6d8bb",
+    "content-hash": "fafcf5de5005cc3b730a19b5b0b942a6",
     "packages": [
         {
             "name": "composer/installers",
@@ -633,15 +633,15 @@
         },
         {
             "name": "wpackagist-plugin/dominant-color-images",
-            "version": "1.0.1",
+            "version": "1.1.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/dominant-color-images/",
-                "reference": "tags/1.0.1"
+                "reference": "tags/1.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/dominant-color-images.1.0.1.zip"
+                "url": "https://downloads.wordpress.org/plugin/dominant-color-images.1.1.0.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -758,34 +758,16 @@
             "homepage": "https://wordpress.org/plugins/performance-lab/"
         },
         {
-            "name": "wpackagist-plugin/w3-total-cache",
-            "version": "2.7.1",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/w3-total-cache/",
-                "reference": "tags/2.7.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/w3-total-cache.2.7.1.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/w3-total-cache/"
-        },
-        {
             "name": "wpackagist-plugin/webp-uploads",
-            "version": "1.0.5",
+            "version": "1.1.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/webp-uploads/",
-                "reference": "tags/1.0.5"
+                "reference": "tags/1.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/webp-uploads.1.0.5.zip"
+                "url": "https://downloads.wordpress.org/plugin/webp-uploads.1.1.0.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -837,12 +819,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "1b43da6199cab7867f06b52454a256efa743f170"
+                "reference": "ead5c491e4dcabab60757555ce65ed7ff14b932f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/1b43da6199cab7867f06b52454a256efa743f170",
-                "reference": "1b43da6199cab7867f06b52454a256efa743f170",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/ead5c491e4dcabab60757555ce65ed7ff14b932f",
+                "reference": "ead5c491e4dcabab60757555ce65ed7ff14b932f",
                 "shasum": ""
             },
             "conflict": {
@@ -1413,7 +1395,7 @@
                 "t3s/content-consent": "<1.0.3|>=2,<2.0.2",
                 "tastyigniter/tastyigniter": "<3.3",
                 "tcg/voyager": "<=1.4",
-                "tecnickcom/tcpdf": "<6.2.22",
+                "tecnickcom/tcpdf": "<6.7.4",
                 "terminal42/contao-tablelookupwizard": "<3.3.5",
                 "thelia/backoffice-default-template": ">=2.1,<2.1.2",
                 "thelia/thelia": ">=2.1,<2.1.3",
@@ -1421,7 +1403,7 @@
                 "thinkcmf/thinkcmf": "<=5.1.7",
                 "thorsten/phpmyfaq": "<3.2.2",
                 "tikiwiki/tiki-manager": "<=17.1",
-                "timber/timber": "<=2",
+                "timber/timber": "<=1.23|==1.24|==2",
                 "tinymce/tinymce": "<7",
                 "tinymighty/wiki-seo": "<1.2.2",
                 "titon/framework": "<9.9.99",
@@ -1577,7 +1559,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-04-12T22:04:12+00:00"
+            "time": "2024-04-16T16:05:34+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",

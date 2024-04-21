@@ -50,6 +50,7 @@ website/app/plugins/wpforms-lite
 website/app/plugins/dominant-color-images
 website/app/plugins/breadcrumb
 website/app/plugins/mobile-menu
+website/app/plugins/disable-right-click-images
 
 # Global gitignore setup
 /composer.lock
