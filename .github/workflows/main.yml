@@ -11,11 +11,11 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: [ 7.0 ]
+        php: [ 8.1 ]
 
     steps:
       - name: checkout bcrampon prod
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Restore the Composer cache directory
         run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
@@ -31,7 +31,7 @@ jobs:
         uses: php-actions/composer@v6
         with:
           version: 2.2
-          php_version: 7.0.33
+          php_version: 8.1
           dev: no
           args: --prefer-dist --no-interaction
 
