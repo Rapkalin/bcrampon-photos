@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "271342bfff7af00d9bcc647976835b5a",
+    "content-hash": "3f33261dcf2ba75a5b0c26b8ef569e69",
     "packages": [
         {
             "name": "composer/installers",
@@ -666,24 +666,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/google-site-kit/"
-        },
-        {
-            "name": "wpackagist-plugin/hello-dolly",
-            "version": "1.7.3",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/hello-dolly/",
-                "reference": "tags/1.7.3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/hello-dolly.1.7.3.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/hello-dolly/"
         },
         {
             "name": "wpackagist-plugin/jetpack",
