@@ -29,7 +29,7 @@
 
     "wpackagist-plugin/w3-total-cache":"^2.4",
     "wpackagist-plugin/akismet":"^5.2",
-    "wpackagist-plugin/jetpack":"^13.9",
+    "wpackagist-plugin/jetpack":"^15.8",
     "wpackagist-plugin/cookie-law-info":"^3.5",
     "wpackagist-plugin/performance-lab": "^4.1",
     "wpackagist-plugin/google-site-kit":"^1.179",
