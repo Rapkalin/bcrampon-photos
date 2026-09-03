@@ -12,6 +12,7 @@ include_once 'functions/frontPageFunctions.php'; // front page
 include_once 'functions/taxonomiesFunctions.php'; // taxonomy pages
 include_once 'functions/layoutFunctions.php'; // layout
 include_once 'functions/utilsFunctions.php'; // utils
+include_once 'functions/commentsFunctions.php'; // comments
 
 // Frontend side
 // require_once( get_stylesheet_directory() . "/includes/setup.php" );       	// Setup and init theme

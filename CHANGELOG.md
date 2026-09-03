@@ -16,7 +16,7 @@
 
 ### <a name="next-release"></a> >>> 1.2- Next release to come
 #### => Tag 1.1.1
-- [Evol] tbc
+- [Evol] Disable comments site wide (no submission from users nor bots, no notification email, existing comments hidden)
 
 ### <a name="backlog"></a> >>> 1.3- Backlog
 - [Evol] xxx

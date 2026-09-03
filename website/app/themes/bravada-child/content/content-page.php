@@ -36,6 +36,5 @@
 		</div><!-- .article-inner -->
 		<?php cryout_singular_after_inner_hook();  ?>
 	</article><!-- #post-## -->
-	<?php comments_template( '', true ); ?>
 
 <?php endwhile; ?>
