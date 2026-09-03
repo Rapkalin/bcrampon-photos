@@ -17,6 +17,18 @@
     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
 
+# Les commentaires sont desactives (voir le theme enfant, functions/commentsFunctions.php).
+# On bloque l'endpoint avant que PHP ne demarre, pour que le spam des bots ne coute rien.
+<Files "wp-comments-post.php">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</Files>
+
 
 # BEGIN W3TC Browser Cache
 <IfModule mod_mime.c>
