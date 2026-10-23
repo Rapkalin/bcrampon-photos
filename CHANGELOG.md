@@ -5,7 +5,13 @@
 * [1.3 - backlog](#backlog)
 
 ### <a name="changelog"></a> >>> 1.1 - Change log
-#### => Tag 1.1.1 (current) / 2026.09.03
+#### => Tag 1.2.0 (current) / 2026.10.23
+- [Evol] Update PHP to 8.5 (composer.json + CI workflows, Composer latest instead of 2.2)
+- [Evol] Update Wordpress core to 7.1.3
+- [Evol] Update composer plugin versions (jetpack 16.3.1, wpforms-lite 2.0.3, w3-total-cache 2.11.0, google-site-kit 1.190.0, media-library-assistant 3.43, cookie-law-info 3.5.7, categories-images 3.3.4, mobile-menu 2.9)
+- [Evol] Update PHP libs (composer/installers 2.3, vlucas/phpdotenv 5.7, symfony/var-dumper 8.1) and adapt Dotenv usage in wp-config.php and scripts
+
+#### => Tag 1.1.1 / 2026.09.03
 - [Evol] Disable comments site wide (no submission from users nor bots, no notification email, existing comments hidden)
 
 #### => Tag 1.1.0 / 2026.09.03
@@ -18,11 +24,8 @@
 - [BCRPM-1] Update Wordpress core to 7.0.0
 
 ### <a name="next-release"></a> >>> 1.2- Next release to come
-#### => Tag 1.1.2
-- [Evol] Update PHP to 8.5 (composer.json + CI workflows, Composer latest instead of 2.2)
-- [Evol] Update Wordpress core to 7.1.3
-- [Evol] Update composer plugin versions (jetpack 16.3.1, wpforms-lite 2.0.3, w3-total-cache 2.11.0, google-site-kit 1.190.0, media-library-assistant 3.43, cookie-law-info 3.5.7, categories-images 3.3.4, mobile-menu 2.9)
-- [Evol] Update PHP libs (composer/installers 2.3, vlucas/phpdotenv 5.7, symfony/var-dumper 8.1) and adapt Dotenv usage in wp-config.php and scripts
+#### => Tag 1.2.1
+- [Evol] xxx
 
 ### <a name="backlog"></a> >>> 1.3- Backlog
 - [Evol] xxx
