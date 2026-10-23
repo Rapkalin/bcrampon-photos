@@ -14,7 +14,7 @@ if (PHP_SAPI !== 'cli') {
 $start = microtime(true);
 
 // Load .env data
-$dotenv = Dotenv::createImmutable(__DIR__.'/../website', '.env');
+$dotenv = Dotenv::createUnsafeImmutable(__DIR__.'/../website', '.env');
 $dotenv->safeLoad();
 
 $filename = 'export-' . date('Ymd_his') . '.sql';
