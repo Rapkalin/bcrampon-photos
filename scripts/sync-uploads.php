@@ -14,7 +14,7 @@ $start = microtime(true);
 
 // Load .env data
 echo "...load .env from: ." . __DIR__. "'/../website', '.env'\r\n";
-$dotenv = Dotenv::createImmutable(__DIR__.'/../website', '.env');
+$dotenv = Dotenv::createUnsafeImmutable(__DIR__.'/../website', '.env');
 $dotenv->safeLoad();
 
 // Copy uploads folder on current machine

@@ -309,7 +309,7 @@ if (!function_exists('get_bravada_child_image_url')) {
      * @param string|null $size
      * @return array|string|string[]|null
      */
-    function get_bravada_child_image_url ($image, string $size = null) {
+    function get_bravada_child_image_url ($image, ?string $size = null) {
         if ($size) {
             return wp_get_attachment_image_src($image->ID, $size)[0];
         }

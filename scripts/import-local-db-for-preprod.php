@@ -15,7 +15,7 @@ if (PHP_SAPI !== 'cli') {
 $start = microtime(true);
 
 // Load .env data
-$dotenv = Dotenv::createMutable(__DIR__.'/..', '.env');
+$dotenv = Dotenv::createUnsafeMutable(__DIR__.'/..', '.env');
 $dotenv->safeLoad();
 
 $filename = __DIR__ . '/../database/' . '240121-bcrampon-preprod_2024-01-28.sql';

@@ -19,7 +19,10 @@
 
 ### <a name="next-release"></a> >>> 1.2- Next release to come
 #### => Tag 1.1.2
-- [Evol] xxx
+- [Evol] Update PHP to 8.5 (composer.json + CI workflows, Composer latest instead of 2.2)
+- [Evol] Update Wordpress core to 7.1.3
+- [Evol] Update composer plugin versions (jetpack 16.3.1, wpforms-lite 2.0.3, w3-total-cache 2.11.0, google-site-kit 1.190.0, media-library-assistant 3.43, cookie-law-info 3.5.7, categories-images 3.3.4, mobile-menu 2.9)
+- [Evol] Update PHP libs (composer/installers 2.3, vlucas/phpdotenv 5.7, symfony/var-dumper 8.1) and adapt Dotenv usage in wp-config.php and scripts
 
 ### <a name="backlog"></a> >>> 1.3- Backlog
 - [Evol] xxx

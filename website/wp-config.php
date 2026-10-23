@@ -27,7 +27,9 @@ if (file_exists(DIR_VENDOR . 'autoload.php')) {
 }
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$env = $dotenv->load();
+$dotenv->load();
+// phpdotenv v5 : load() ne renvoie que les variables qu'il a écrites (pas celles déjà définies côté serveur)
+$env = $_ENV;
 
 /** Enable W3 Total Cache */
 define('WP_CACHE', true); // Added by W3 Total Cache
